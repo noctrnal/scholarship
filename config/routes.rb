@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
 
   get "/pages/*page" => "pages#show"
+
   root "pages#show", page: "index"
 end
 
