@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scholarship</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  </head>
+
+  <body>
+    <div class="wrapper-for-content-outside-of-footer">
+      <header class="navigation" role="banner">
+        <div class="navigation-wrapper">
+          <a href="/" class="logo">
+            <img src="/logo.png" alt="Logo Image">
+          </a>
+          <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+          <nav role="navigation">
+            <ul id="js-navigation-menu" class="navigation-menu show">
+              <li class="nav-link">
+                <% if user_signed_in? %>
+                  <%= link_to('Edit registration', edit_user_registration_path) %>
+                <% else %>
+                  <%= link_to('Register', new_user_registration_path)  %>
+                <% end %>
+              </li>
+              <li class="nav-link">
+                <% if user_signed_in? %>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                <% else %>
+                  <%= link_to('Login', new_user_session_path)  %>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <footer class="footer-2" role="contentinfo">
+      <ul>
+        <li><a href="javascript:void(0)">About</a></li>
+        <li><a href="javascript:void(0)">Contact</a></li>
+        <li><a href="javascript:void(0)">Products</a></li>
+      </ul>
+
+      <div class="footer-secondary-links">
+        <ul>
+          <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+          <li><a href="javascript:void(0)">Privacy Policy</a></li>
+        </ul>
+
+        <ul class="footer-social">
+          <li><a href="javascript:void(0)">
+              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+              </a></li>
+              <li><a href="javascript:void(0)">
+                  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/youtube-logo-circle.png" alt="YouTube">
+                </a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+

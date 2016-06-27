@@ -10,8 +10,25 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header class="navigation" role="banner">
+      <ul>
+        <li class="nav-link">
+          <% if user_signed_in? %>
+            <%= link_to('Edit registration', edit_user_registration_path) %>
+          <% else %>
+            <%= link_to('Register', new_user_registration_path) %>
+          <% end %>
+        </li>
+        <li class="nav-link">
+          <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+            <%= link_to('Login', new_user_session_path) %>
+          <% end %>
+        </li>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>
+

@@ -1,35 +1,17 @@
-<h1>Splash page</h1>
-<h2>Links</h2>
-<ul>
-  <li>
-    <% if user_signed_in? %>
-      <%= link_to('Edit registration', edit_user_registration_path) %>
-    <% else %>
-      <%= link_to('Register', new_user_registration_path)  %>
-    <% end %>
-  </li>
-  <li>
-    <% if user_signed_in? %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    <% else %>
-      <%= link_to('Login', new_user_session_path)  %>  
-    <% end %>
-  </li>
-</ul>
-<h2>Sections</h2>
-<ul>
-  <li>NAJA welcome</li>
-  <li>Offer to applicants</li>
-  <li>Offer to recommendationers</li>
-  <li>Offer to scholarship committee</li>
-</ul>
-</p>
-<h2>Styling</h2>
-<ul>
-  <li>Infinity design</li>
-  <li>Navigation</li>
-  <li>Footer with legal</li>
-  <li>NAJA colored sections</li>
-  <li>Pictures for first section</li>
-</ul>
+<div class="splash-header">
+  <div class="splash-header-secondary"></div>
+  <div class="splash-header-primary">
+    <div>
+      <%= render 'welcome' %>
+    </div>
+  </div>
+</div>
+<div class="splash-process">
+  <div class="splash-process-secondary"></div>
+  <div class="splash-process-primary">
+    <div>
+      <%= render 'process' %>
+    </div>
+  </div>
+</div>
 
