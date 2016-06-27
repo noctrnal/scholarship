@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613033732) do
+ActiveRecord::Schema.define(version: 20160627041323) do
+
+  create_table "dashboards", force: :cascade do |t|
+    t.string   "home"
+    t.string   "recommendation"
+    t.string   "status"
+    t.string   "submission"
+    t.string   "transcript"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
