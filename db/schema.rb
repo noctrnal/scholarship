@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160705030555) do
 
-  create_table "dashboards", force: :cascade do |t|
-    t.string   "home"
-    t.string   "recommendation"
-    t.string   "status"
-    t.string   "submission"
-    t.string   "transcript"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -41,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160705030555) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -50,12 +40,12 @@ ActiveRecord::Schema.define(version: 20160705030555) do
     t.string   "permanent_city"
     t.string   "permanent_state"
     t.integer  "permanent_zip"
-    t.integer  "permanent_phone"
+    t.integer  "permanent_phone",       limit: 9
     t.string   "current_address"
     t.string   "current_city"
     t.string   "current_state"
     t.integer  "current_zip"
-    t.integer  "current_phone"
+    t.integer  "current_phone",         limit: 9
     t.boolean  "citizen"
     t.integer  "field_id"
     t.text     "field_explanation"

@@ -1,3 +1,92 @@
 // Place all the styles related to the submissions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+label, select {
+  display: inline-block;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.right {
+  float: right!important;
+}
+
+.anticipated-institution-information {
+  div:nth-of-type(odd) {
+    float: left;
+  }
+
+  div:nth-of-type(even) {
+    float: right;
+  }
+
+  > div:nth-of-type(odd) {
+    padding: 0 1em 0 1em;
+  }
+
+  > div:nth-of-type(even) {
+    padding: 0 1em 0 0;
+  }
+
+  > div:last-child {
+    width: 100%;
+  }
+
+  > div {
+    width: 50%;
+
+    div:nth-of-type(even) {
+      width: 100%;
+    }
+  }
+
+  .cost-estimates {
+    padding-left: 1em!important;
+    width: 100%;
+
+    div {
+      display: inline-block;
+      width: 50%!important;
+
+      div {
+        width: 50%;
+      }
+    }
+
+    div:nth-of-type(odd) {
+      padding-right: 1em;
+    }
+  }
+
+  .institution-information {
+    > div {
+      width: 100%;
+
+      > div:nth-of-type(even) {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.motivation {
+  > div {
+    padding: 0 1em 0 1em;
+  }
+}
+
+.personal-information {
+  div {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+  }
+
+  div:nth-of-type(odd) {
+    padding: 0 1em 0 1em;
+  }
+}
+
