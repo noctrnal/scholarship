@@ -1,22 +1,20 @@
 <h1>Everything you need in one place.</h1>
 <p>From seeing if you qualify, to submitting your application, to having your supporters submit recommendations, to NAJA committee members selecting winners, it's all under one roof.</p>
-<ul>
+<ul class="splash">
   <li>
-    <a href="/pages/about"><span class="information">Information</span></a>
+    <a href="/pages/about"><span class="orange">Information</span></a>
     <p>Find out if you qualify for NAJA scholarships!</p>
   </li>
   <li>
-    <span class="applicants">
-      <%= link_to('Applications', new_user_session_path) %>
-    </span>
+    <%= link_to('Applications', new_user_session_path, class: "red") %>
     <p>Apply for a NAJA scholarship!</p>
   </li>
   <li>
-    <span class="recommendations">Recommendations</span>
+    <%= link_to('Recommendations', new_recommendation_path, class: "green") %>
     <p>Submit a recommendation for a NAJA scholarship candidate!</p>
   </li>
   <li>
-    <span class="committees">Committee Members</span>
+    <span class="blue">Committee Members</span>
     <p>Review and evaluate NAJA scholarship candidates!</p>
   </li>
 </ul>

@@ -1,0 +1,20 @@
+<h1>So, what all do I need to do?</h1>
+<ul class="dashboard">
+  <li>
+    <%= link_to('1. Submit scholarship application', new_submission_path, class: "orange") %>
+    <p>Fill out and submit the scholarship application online. The application must be submitted before you will be able to proceed to the other parts.<p>
+  </li>
+  <li>
+    <%= link_to('2. Submit transcript(s)', new_transcript_path, class: "red") %>
+    <p>Once your application is submitted, you will need to submit a transcript for each higher education institution you've attended.</p>
+  </li>
+  <li>
+    <%= link_to('3. Request recommendations', new_recommendation_path, class: "green") %>
+    <p>You will need three recommendations. These are commonly from professors, employers, coworkers, and colleagues.</p>
+  </li>
+  <li>
+    <span class="blue">4. Check for status updates</span>
+    <p>Once your application is complete, be sure to check back on updates on being selected!</p>
+  </li>
+</ul>
+

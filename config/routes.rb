@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :transcripts
+  resources :recommendations
+  resources :submissions
   get 'dashboard/home'
 
   devise_for :users
