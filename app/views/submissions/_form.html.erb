@@ -1,4 +1,4 @@
-<%= form_for(submission) do |f| %>
+<%= form_for(submission) do |form| %>
   <% if submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
@@ -12,6 +12,69 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= form.text_field :first_name, placeholder: 'First name' %>
+    <%= form.text_field :middle_name, placeholder: 'Middle name' %>
+    <%= form.text_field :last_name, placeholder: 'Last name' %>
+    <%= form.text_field :permanent_address, placeholder: 'Permanent address' %>
+    <%= form.text_field :permanent_city, placeholder: 'Permanent city' %>
+    <%= form.text_field :permanent_state, placeholder: 'Permanent state' %>
+    <%= form.text_field :permanent_zip, placeholder: 'Permanent zip' %>
+    <%= form.phone_field :permanent_phone, placeholder: 'Permanent phone number' %>
+    <%= form.text_field :current_address, placeholder: 'Current address' %>
+    <%= form.text_field :current_city, placeholder: 'Current city' %>
+    <%= form.text_field :current_state, placeholder: 'Current state' %>
+    <%= form.text_field :current_zip, placeholder: 'Current zip' %>
+    <%= form.phone_field :current_phone, placeholder: 'Current phone number' %>
+    <%= form.label :citizen, 'I am a U.S. citizen.' %>
+    <%= form.check_box :citizen %>
+    <%= form.label :field_id, 'Proposed field of study:' %>
+    <%= form.select :field_id, options_for_select(
+      Field.all.map{|field| [field.name, field.id]}
+    ) %>
+    <%= form.text_field :field_explanation, placeholder: 'If other, explain.' %>
+    <%= form.label :degree_id, 'Degree you will work to obtain:' %>
+    <%= form.select :degree_id, options_for_select(
+      Degree.all.map{|degree| [degree.name, degree.id]}
+    ) %>
+    <%= form.text_field :degree_explanation, placeholder: 'If other, explain.' %>
+    <%= form.text_field :institution_name, placeholder: 'Institution name' %>
+    <%= form.text_field :institution_city, placeholder: 'Institution city' %>
+    <%= form.text_field :institution_state, placeholder: 'Institution state' %>
+    <%= form.label :accpetance, 'I have been accepted into this graduate program.' %>
+    <%= form.check_box :acceptance %>
+    <%= form.label :start_month, 'Date your studies will begin:' %>
+    <%= form.month_field :start_month %>
+    <%= form.label :last_year, 'I will earn my degree within this scholarship year.' %>
+    <%= form.check_box :last_year %>
+    <%= form.text_field :last_year_explanation, placeholder: 'If no, explain.' %>
+    <%= form.number_field :summer_tuition, placeholder: 'Summer tuition/fees' %>
+    <%= form.number_field :summer_books, placeholder: 'Summer books' %>
+    <%= form.number_field :summer_board, placeholder: 'Summer room/board' %>
+    <%= form.number_field :summer_other, placeholder: 'Summer other' %>
+    <%= form.number_field :summer_hours, placeholder: 'Summer hours' %>
+    <%= form.number_field :fall_tuition, placeholder: 'Fall tuition/fees' %>
+    <%= form.number_field :fall_books, placeholder: 'Fall books' %>
+    <%= form.number_field :fall_board, placeholder: 'Fall room/board' %>
+    <%= form.number_field :fall_other, placeholder: 'Fall other' %>
+    <%= form.number_field :fall_hours, placeholder: 'Fall hours' %>
+    <%= form.number_field :winter_tuition, placeholder: 'Winter tuition/fees' %>
+    <%= form.number_field :winter_books, placeholder: 'Winter books' %>
+    <%= form.number_field :winter_board, placeholder: 'Winter room/board' %>
+    <%= form.number_field :winter_other, placeholder: 'Winter other' %>
+    <%= form.number_field :winter_hours, placeholder: 'Winter hours' %>
+    <%= form.number_field :spring_tuition, placeholder: 'Spring tuition/fees' %>
+    <%= form.number_field :spring_books, placeholder: 'Spring books' %>
+    <%= form.number_field :spring_board, placeholder: 'Spring room/board' %>
+    <%= form.number_field :spring_other, placeholder: 'Spring other' %>
+    <%= form.number_field :spring_hours, placeholder: 'Spring hours' %>
+    <%= form.label :frequency, 'Is this request for semester or quarter terms?' %>
+    <%= form.select :frequency, options_for_select(
+      [
+        ['Semesterly terms', 'semester'],
+        ['Quarterly terms', 'quarter']
+      ]
+    ) %>
+    <%= form.text_field :motivation, placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
+    <%= form.submit %>
   </div>
 <% end %>

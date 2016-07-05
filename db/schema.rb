@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627042432) do
+ActiveRecord::Schema.define(version: 20160705030555) do
 
   create_table "dashboards", force: :cascade do |t|
     t.string   "home"
@@ -23,14 +23,76 @@ ActiveRecord::Schema.define(version: 20160627042432) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "permanent_address"
+    t.string   "permanent_city"
+    t.string   "permanent_state"
+    t.integer  "permanent_zip"
+    t.integer  "permanent_phone"
+    t.string   "current_address"
+    t.string   "current_city"
+    t.string   "current_state"
+    t.integer  "current_zip"
+    t.integer  "current_phone"
+    t.boolean  "citizen"
+    t.integer  "field_id"
+    t.text     "field_explanation"
+    t.integer  "degree_id"
+    t.text     "degree_explanation"
+    t.string   "institution_name"
+    t.string   "institution_city"
+    t.string   "institution_state"
+    t.boolean  "acceptance"
+    t.integer  "start_month"
+    t.integer  "start_year"
+    t.boolean  "last_year"
+    t.text     "last_year_explanation"
+    t.integer  "summer_tuition"
+    t.integer  "summer_books"
+    t.integer  "summer_board"
+    t.integer  "summer_other"
+    t.integer  "summer_hours"
+    t.integer  "fall_tuition"
+    t.integer  "fall_books"
+    t.integer  "fall_board"
+    t.integer  "fall_other"
+    t.integer  "fall_hours"
+    t.integer  "winter_tuition"
+    t.integer  "winter_books"
+    t.integer  "winter_board"
+    t.integer  "winter_other"
+    t.integer  "winter_hours"
+    t.integer  "spring_tuition"
+    t.integer  "spring_books"
+    t.integer  "spring_board"
+    t.integer  "spring_other"
+    t.integer  "spring_hours"
+    t.string   "frequency"
+    t.text     "motivation"
+    t.index ["degree_id"], name: "index_submissions_on_degree_id"
+    t.index ["field_id"], name: "index_submissions_on_field_id"
   end
 
   create_table "transcripts", force: :cascade do |t|
