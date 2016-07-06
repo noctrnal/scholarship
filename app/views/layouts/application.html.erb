@@ -23,13 +23,13 @@
         <% end %>
         <% if user_signed_in? %>
           <li class="nav-link">
-            <%= link_to('Submit application', destroy_user_session_path, :method => :delete) %>
+            <%= link_to('Submit application', new_submission_path) %>
           </li>
           <li class="nav-link">
-            <%= link_to('Submit transcript', destroy_user_session_path, :method => :delete) %>
+            <%= link_to('Submit transcript', new_transcript_path) %>
           </li>
           <li class="nav-link">
-            <%= link_to('Request recommendation', destroy_user_session_path, :method => :delete) %>
+            <%= link_to('Request recommendation', new_recommendation_path) %>
           </li>
           <li class="nav-link">
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>

@@ -1,0 +1,9 @@
+<div>
+  <%= form.add_nested_fields_link :volunteers, 'Add volunteerism' %>
+  <%= form.nested_fields_for :volunteers do |volunteer| %>
+    <div>
+      <%= volunteer.text_field :name, placeholder: 'Name' %>
+    </div>
+  <% end %>
+</div>
+

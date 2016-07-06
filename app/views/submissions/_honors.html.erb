@@ -1,0 +1,9 @@
+<div>
+  <%= form.add_nested_fields_link :honors, 'Add honor' %>
+  <%= form.nested_fields_for :honors do |honor| %>
+    <div>
+      <%= honor.text_field :name, placeholder: 'Name' %>
+    </div>
+  <% end %>
+</div>
+

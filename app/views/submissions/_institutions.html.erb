@@ -1,0 +1,23 @@
+<div>
+  <%= form.add_nested_fields_link :institutions, 'Add institution' %>
+  <%= form.nested_fields_for :institutions do |institution| %>
+    <div>
+      <%= institution.text_field :name, placeholder: 'Name' %>
+    </div>
+    <div>
+      <%= institution.text_field :degree, placeholder: 'Degree received' %>
+    </div>
+    <div>
+      <%= institution.text_field :gpa, placeholder: 'GPA' %>
+    </div>
+    <div>
+      <%= institution.label :start, 'From date:' %>
+      <%= institution.month_field :start %>
+    </div>
+    <div>
+      <%= institution.label :end, 'To date:' %>
+      <%= institution.month_field :end, placeholder: 'End date' %>
+    </div>
+  <% end %>
+</div>
+

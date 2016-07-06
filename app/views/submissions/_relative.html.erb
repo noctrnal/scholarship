@@ -1,0 +1,27 @@
+<div>
+  <%= form.nested_fields_for :relatives do |relative| %>
+    <div>
+      <div>
+        <%= relative.text_field :name, placeholder: 'Name' %>
+      </div>
+      <div>
+        <%= relative.text_field :relationship, placeholder: 'Relationship' %>
+      </div>
+    </div>
+    <div>
+      <div>
+        <%= relative.text_field :address, placeholder: 'Address' %>
+      </div>
+      <div>
+        <%= relative.text_field :city, placeholder: 'City' %>
+      </div>
+      <div>
+        <%= relative.text_field :state, placeholder: 'State' %>
+      </div>
+      <div>
+        <%= relative.number_field :zip, placeholder: 'Zip' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

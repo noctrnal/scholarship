@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705030555) do
+ActiveRecord::Schema.define(version: 20160706054053) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "employments", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.string   "employer"
+    t.string   "title"
+    t.date     "start"
+    t.date     "end"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["submission_id"], name: "index_employments_on_submission_id"
   end
 
   create_table "fields", force: :cascade do |t|
@@ -25,9 +36,42 @@ ActiveRecord::Schema.define(version: 20160705030555) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "honors", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["submission_id"], name: "index_honors_on_submission_id"
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.string   "name"
+    t.date     "start"
+    t.date     "end"
+    t.string   "degree"
+    t.float    "gpa"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["submission_id"], name: "index_institutions_on_submission_id"
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relatives", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.string   "name"
+    t.string   "relationship"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["submission_id"], name: "index_relatives_on_submission_id"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -105,6 +149,14 @@ ActiveRecord::Schema.define(version: 20160705030555) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["submission_id"], name: "index_volunteers_on_submission_id"
   end
 
 end

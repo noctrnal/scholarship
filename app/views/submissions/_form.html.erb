@@ -1,4 +1,4 @@
-<%= form_for(submission) do |form| %>
+<%= form_for @submission do |form| %>
   <% if submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
@@ -38,6 +38,26 @@
         <%= form.text_field :current_zip, placeholder: 'Current zip' %>
         <%= form.phone_field :current_phone, placeholder: 'Current phone number' %>
       </div>
+    </div>
+    <div class="relative">
+      <h2>Nearest relative</h2>
+      <%= render :partial => 'relative', :locals => {:form => form} %>
+    </div>
+    <div class="employments">
+      <h2>Employment history</h2>
+      <%= render :partial => 'employment', :locals => {:form => form} %>
+    </div>
+    <div class="institutions">
+      <h2>Institutions attended</h2>
+      <%= render :partial => 'institutions', :locals => {:form => form} %>
+    </div>
+    <div class="honors">
+      <h2>Honors, scholarships, or special recognitions</h2>
+      <%= render :partial => 'honors', :locals => {:form => form} %>
+    </div>
+    <div class="volunteers">
+      <h2>Civic or cultural involvements and volunteerisms</h2>
+      <%= render :partial => 'volunteers', :locals => {:form => form} %>
     </div>
     <div class="anticipated-institution-information clearfix">
       <h2>Future education information</h2>

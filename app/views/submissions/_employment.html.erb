@@ -1,0 +1,20 @@
+<div>
+  <%= form.add_nested_fields_link :employments, 'Add employment' %>
+  <%= form.nested_fields_for :employments do |employment| %>
+    <div>
+      <%= employment.text_field :employer, placeholder: 'Employer' %>
+    </div>
+    <div>
+      <%= employment.text_field :title, placeholder: 'Job title' %>
+    </div>
+    <div>
+      <%= employment.label :start, 'From date:' %>
+      <%= employment.month_field :start %>
+    </div>
+    <div>
+      <%= employment.label :end, 'To date:' %>
+      <%= employment.month_field :end, placeholder: 'End date' %>
+    </div>
+  <% end %>
+</div>
+

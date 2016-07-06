@@ -15,6 +15,15 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new
+    @submission.employments.build
+    @submission.relatives.build
+    @submission.institutions.build
+    4.times do
+      @submission.honors.build
+    end
+    4.times do
+      @submission.volunteers.build
+    end
   end
 
   # GET /submissions/1/edit
@@ -24,7 +33,8 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-    @submission = Submission.new(submission_params)
+    @submission = Submission.create
+    @submission.attributes = submission_params
 
     respond_to do |format|
       if @submission.save
@@ -118,6 +128,44 @@ class SubmissionsController < ApplicationController
         :spring_hours,
         :frequency,
         :motivation,
+        employments_attributes:[
+          :employer,
+          :title,
+          :start,
+          :end,
+          :_destroy,
+          :id,
+        ],
+        relatives_attributes:[
+          :name,
+          :relationship,
+          :address,
+          :city,
+          :state,
+          :zip,
+          :_destroy,
+          :id,
+        ],
+        institutions_attributes:[
+          :name,
+          :start,
+          :end,
+          :degree,
+          :gpa,
+          :_destroy,
+          :id,
+        ],
+        honors_attributes:[
+          :name,
+          :_destroy,
+          :id,
+        ],
+        volunteers_attributes:[
+          :name,
+          :_destroy,
+          :id,
+        ],
       )
     end
 end
+
