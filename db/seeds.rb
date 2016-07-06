@@ -8,6 +8,37 @@
 
 User.create(:email => 'user@example.com', :password => 'password')
 
-Field.create(:name => 'Other')
-Degree.create(:name => 'Other')
+[
+  'Art Therapy',
+  'Audiology',
+  'Clinical Psychology',
+  'Counseling',
+  'Deaf Education',
+  'Education Psychology',
+  'Education Specialist',
+  'Education Technology',
+  'Guidance',
+  'Music Therapy',
+  'Occupational Therapy',
+  'Orientation and Mobility Education',
+  'Pediatric Physical Therapy',
+  'Psychology',
+  'Psychometry',
+  'Reading Specialist',
+  'Recreation Therapy',
+  'Social Work',
+  'Speical Education (all areas)',
+  'Speech, Hearing, or Language Pathology',
+  'Other',
+].each do |field|
+  Field.create(:name => field)
+end
+
+[
+  'Masters',
+  'Doctorate',
+  'Other',
+].each do |degree|
+  Degree.create(:name => degree)
+end
 
