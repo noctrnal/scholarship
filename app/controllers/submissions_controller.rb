@@ -35,6 +35,7 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.create
     @submission.attributes = submission_params
+    @submission.user = current_user.id if current_user
 
     respond_to do |format|
       if @submission.save
