@@ -22,8 +22,6 @@ class AddFieldsToSubmissions < ActiveRecord::Migration[5.0]
     add_column :submissions, :institution_city, :string
     add_column :submissions, :institution_state, :string
     add_column :submissions, :acceptance, :boolean
-    add_column :submissions, :start_month, :integer
-    add_column :submissions, :start_year, :integer
     add_column :submissions, :last_year, :boolean
     add_column :submissions, :last_year_explanation, :text
     add_column :submissions, :summer_tuition, :integer

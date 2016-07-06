@@ -1,6 +1,19 @@
 // Place all the styles related to the submissions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media print {
+  .anticipated-institution-information {
+    page-break-before: always;
+  }
+
+  .estimates {
+    page-break-inside: avoid;
+  }
+
+  .relative {
+    page-break-after: always;
+  }
+}
 
 label, select {
   display: inline-block;
@@ -86,7 +99,7 @@ label, select {
       }
 
       > div:nth-of-type(2) {
-        width: 29%;
+        width: 28.5%;
       }
 
       > div:nth-of-type(3) {
@@ -126,11 +139,11 @@ label, select {
       }
 
       > div:nth-of-type(2) {
-        width: 24%;
+        width: 22.5%;
       }
 
       > div:nth-of-type(3) {
-        width: 4%;
+        width: 5.5%;
       }
 
       >div:nth-of-type(4) {

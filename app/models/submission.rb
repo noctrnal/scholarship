@@ -1,5 +1,6 @@
 class Submission < ApplicationRecord
-  has_one :user
+  belongs_to :user
+
   has_many :employments
   has_many :relatives
   has_many :institutions

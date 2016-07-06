@@ -1,4 +1,5 @@
 class SubmissionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
 
   # GET /submissions
@@ -104,7 +105,7 @@ class SubmissionsController < ApplicationController
         :institution_city,
         :institution_state,
         :acceptance,
-        :start_month,
+        :start_date,
         :last_year,
         :last_year_explanation,
         :summer_tuition,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706055515) do
+ActiveRecord::Schema.define(version: 20160706065457) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -99,8 +99,6 @@ ActiveRecord::Schema.define(version: 20160706055515) do
     t.string   "institution_city"
     t.string   "institution_state"
     t.boolean  "acceptance"
-    t.integer  "start_month"
-    t.integer  "start_year"
     t.boolean  "last_year"
     t.text     "last_year_explanation"
     t.integer  "summer_tuition"
@@ -126,6 +124,7 @@ ActiveRecord::Schema.define(version: 20160706055515) do
     t.string   "frequency"
     t.text     "motivation"
     t.integer  "user_id"
+    t.         "start_date"
     t.index ["degree_id"], name: "index_submissions_on_degree_id"
     t.index ["field_id"], name: "index_submissions_on_field_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
@@ -149,8 +148,10 @@ ActiveRecord::Schema.define(version: 20160706055515) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "submission_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["submission_id"], name: "index_users_on_submission_id"
   end
 
   create_table "volunteers", force: :cascade do |t|
