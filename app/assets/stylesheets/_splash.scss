@@ -38,17 +38,17 @@ $pantone-blue: #001489;
   }
 }
 
-.splash-process {
+.splash-content {
   min-height: 35em;
 
-  .splash-process-secondary {
-    background-image: url("/splash-process.jpg");
+  .splash-content-secondary {
+    background-image: url("/splash-content.jpg");
     background-repeat: no-repeat;
     float: left;
     min-height: inherit;
     width: 35%;
   }
-  .splash-process-primary {
+  .splash-content-primary {
     display: table;
     float: right;
     min-height: inherit;
@@ -99,11 +99,11 @@ $pantone-blue: #001489;
           }
         }
       }
-      .splash-process-grid:nth-child(odd) {
+      .splash-content-grid:nth-child(odd) {
         float: right;
         width: 50%;
       }
-      .splash-process-grid:nth-child(even) {
+      .splash-content-grid:nth-child(even) {
         float: left;
         width: 50%;
       }
