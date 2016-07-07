@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706065457) do
+ActiveRecord::Schema.define(version: 20160707030703) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -131,8 +131,14 @@ ActiveRecord::Schema.define(version: 20160706065457) do
   end
 
   create_table "transcripts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "institution_id"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.index ["institution_id"], name: "index_transcripts_on_institution_id"
   end
 
   create_table "users", force: :cascade do |t|
