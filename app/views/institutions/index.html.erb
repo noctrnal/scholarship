@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your institutions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @institutions.each do |institution| %>
+      <tr>
+        <td><%= institution.name %></td>
+        <td>
+          <% if institution.transcript %>
+            <%= link_to 'Transcript', institution.transcript.upload.url %>
+          <% else %>
+            <%= link_to 'Submit transcript', new_transcript_path(
+              :institution_id => institution.id
+            ) %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

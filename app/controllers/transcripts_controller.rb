@@ -15,6 +15,7 @@ class TranscriptsController < ApplicationController
   # GET /transcripts/new
   def new
     @transcript = Transcript.new
+    @transcript.institution_id = params[:institution_id]
   end
 
   # GET /transcripts/1/edit
@@ -28,8 +29,7 @@ class TranscriptsController < ApplicationController
 
     respond_to do |format|
       if @transcript.save
-        format.html { redirect_to @transcript, notice: 'Transcript was successfully created.' }
-        format.json { render :show, status: :created, location: @transcript }
+        format.html { redirect_to institutions_path }
       else
         format.html { render :new }
         format.json { render json: @transcript.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class TranscriptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcript_params
-      params.fetch(:transcript, {})
+      params.require(:transcript).permit(:institution_id, :upload)
     end
 end

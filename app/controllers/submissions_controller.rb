@@ -16,9 +16,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new
-    @submission.employments.build
     @submission.relatives.build
-    @submission.institutions.build
     4.times do
       @submission.honors.build
     end
@@ -36,7 +34,7 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.create
     @submission.attributes = submission_params
-    @submission.user = current_user.id if current_user
+    @submission.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @submission.save
@@ -81,7 +79,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      # params.fetch(:submission, {})
       params.require(:submission).permit(
         :first_name,
         :middle_name,

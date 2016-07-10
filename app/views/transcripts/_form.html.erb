@@ -1,4 +1,4 @@
-<%= form_for(transcript) do |f| %>
+<%= form_for @transcript, url: transcripts_path, html: { multipart: true } do |form| %>
   <% if transcript.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(transcript.errors.count, "error") %> prohibited this transcript from being saved:</h2>
@@ -12,6 +12,8 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= form.file_field :upload %>
+    <%= form.hidden_field :institution_id, :value => transcript[:institution_id] %>
+    <%= form.submit %>
   </div>
 <% end %>
