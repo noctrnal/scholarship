@@ -15,6 +15,10 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
+    if current_user.submission
+      redirect_to action: "edit", id: current_user.submission.id
+    end
+
     @submission = Submission.new
     @submission.relatives.build
     4.times do
