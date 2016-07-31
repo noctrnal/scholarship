@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731001249) do
+ActiveRecord::Schema.define(version: 20160731003122) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -159,6 +159,18 @@ ActiveRecord::Schema.define(version: 20160731001249) do
     t.text     "motivation"
     t.integer  "user_id"
     t.         "start_date"
+    t.string   "license_file_name"
+    t.string   "license_content_type"
+    t.integer  "license_file_size"
+    t.datetime "license_updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+    t.string   "expense_file_name"
+    t.string   "expense_content_type"
+    t.integer  "expense_file_size"
+    t.datetime "expense_updated_at"
     t.index ["degree_id"], name: "index_submissions_on_degree_id"
     t.index ["field_id"], name: "index_submissions_on_field_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"

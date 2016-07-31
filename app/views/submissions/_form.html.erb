@@ -21,6 +21,8 @@
         <%= form.text_field :last_name, placeholder: 'Last name' %>
         <%= form.label :citizen, 'I am a U.S. citizen.' %>
         <%= form.check_box :citizen %>
+        <p>Adobe PDF of your driver's license:</p>
+        <%= form.file_field :license %>
       </div>
       <div>
         <h3>Permanent address</h3>
@@ -46,6 +48,10 @@
     <div class="employments">
       <h2>Employment history</h2>
       <%= render :partial => 'employment', :locals => {:form => form} %>
+      <div>
+        <p>Adobe PDF of your resume:</p>
+        <%= form.file_field :resume %>
+      </div>
     </div>
     <div class="institutions">
       <h2>Institutions attended</h2>
@@ -155,6 +161,10 @@
             ['Quarterly terms', 'quarter']
           ]
         ) %>
+      </div>
+      <div>
+        <p>Adobe PDF of the institution's expense page(s) from the current school catalog:</p>
+        <%= form.file_field :expense %>
       </div>
     </div>
     <div class="motivation">

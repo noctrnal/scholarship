@@ -1,6 +1,6 @@
 Scholarship recommendation request
 
-<%= @submission.first_name %> <%= @submission.last_name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Please visit: <%= edit_recommendation_url(:id => @recommendation.id) %> to submit the recommendation form.
+<%= @submission.first_name %> <%= @submission.last_name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Please visit: <%= edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token) %> to submit the recommendation form.
 
 Thank you for your time,
 National Association of Junior Auxiliaries, Inc.
