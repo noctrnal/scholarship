@@ -42,3 +42,25 @@ end
   Degree.create(:name => degree)
 end
 
+[
+  'Enthusiastic',
+  'With confidence',
+  'Recommended',
+  'Recommended with reservation',
+  'Not recommended',
+].each do |rating|
+  Rating.create(:name => rating)
+end
+
+[
+  'Outstanding',
+  'Very good',
+  'Good',
+  'Average',
+  'Below average',
+  'Poor',
+  'No basis to evaluate',
+].each do |impression|
+  Impression.create(:name => impression)
+end
+

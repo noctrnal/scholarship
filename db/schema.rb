@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707030703) do
+ActiveRecord::Schema.define(version: 20160731001249) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 20160707030703) do
     t.index ["submission_id"], name: "index_honors_on_submission_id"
   end
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "institutions", force: :cascade do |t|
     t.integer  "submission_id"
     t.string   "name"
@@ -56,9 +62,37 @@ ActiveRecord::Schema.define(version: 20160707030703) do
     t.index ["submission_id"], name: "index_institutions_on_submission_id"
   end
 
-  create_table "recommendations", force: :cascade do |t|
+  create_table "ratings", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "token"
+    t.integer  "submission_id"
+    t.string   "email"
+    t.float    "years"
+    t.string   "capacity"
+    t.integer  "communication"
+    t.integer  "motivation"
+    t.integer  "habits"
+    t.integer  "responsibility"
+    t.integer  "personality"
+    t.integer  "maturity"
+    t.integer  "rating"
+    t.string   "name"
+    t.string   "title"
+    t.string   "department"
+    t.string   "institution"
+    t.string   "address"
+    t.string   "recommendation_file_name"
+    t.string   "recommendation_content_type"
+    t.integer  "recommendation_file_size"
+    t.datetime "recommendation_updated_at"
+    t.index ["submission_id"], name: "index_recommendations_on_submission_id"
   end
 
   create_table "relatives", force: :cascade do |t|

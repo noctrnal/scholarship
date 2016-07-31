@@ -14,21 +14,33 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/new
   def new
-    @recommendation = Recommendation.new
+    if current_user.submission
+      @recommendation = Recommendation.new
+    else
+      redirect_to dashboard_home_path
+    end
   end
 
   # GET /recommendations/1/edit
   def edit
+    unless params[:token] == @recommendation.token
+      redirect_to root_path
+    end
+
+    @submission = @recommendation.submission
   end
 
   # POST /recommendations
   # POST /recommendations.json
   def create
     @recommendation = Recommendation.new(recommendation_params)
+    @submission = Submission.find_by_user_id(current_user.id)
+    @recommendation.submission_id = @submission.id
 
     respond_to do |format|
       if @recommendation.save
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
+        RecommendationRequestMailer.recommendation_request(@recommendation).deliver
+        format.html { redirect_to dashboard_home_path, notice: 'Recommendation was successfully created.' }
         format.json { render :show, status: :created, location: @recommendation }
       else
         format.html { render :new }
@@ -69,6 +81,23 @@ class RecommendationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recommendation_params
-      params.fetch(:recommendation, {})
+      params.require(:recommendation).permit(
+        :address,
+        :email,
+        :capacity,
+        :communication,
+        :department,
+        :habits,
+        :institution,
+        :maturity,
+        :motivation,
+        :name,
+        :personality,
+        :rating,
+        :recommendation,
+        :responsibility,
+        :title,
+        :years,
+      )
     end
 end

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Scholarship recommendation request</h1>
+    <p>
+    <%= @name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Click <%= link_to('here', edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token)) %> to submit the recommendation form.
+    </p>
+    <p>Thank you for your time,</p>
+    <p>National Association of Junior Auxiliaries, Inc.</p>
+  </body>
+</html>
+

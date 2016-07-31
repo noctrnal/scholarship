@@ -1,0 +1,85 @@
+<%= form_for @recommendation do |form| %>
+  <% if recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
+
+      <ul>
+        <% recommendation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <p><span>Applicant</span>: Jimmy Pearson</p>
+    <p><span>Proposed field of study</span>: Art Therapy</p>
+    <p>The applicant has been asked to secure evaluations from instructors, employers, and/or others who know him/her and his/her capabilities.</p>
+    <p>Use the comments section to refer to the applicant's strong and weak points. This is most useful to the National Scholarship Committee when making its decision. Since the purpose of the NAJA Scholarship is to help graduate students who will work DIRECTLY with children with special and particular needs, please comment on this applicant's goals in this respect.</p>
+    <div class="clearfix">
+      <div class="overview">
+        <h2>Your information and overview</h2>
+        <%= form.text_field :name, placeholder: 'Name', :autofocus => true %>
+        <%= form.text_field :title, placeholder: 'Title' %>
+        <%= form.text_field :department, placeholder: 'Department' %>
+        <%= form.text_field :institution, placeholder: 'Institution' %>
+        <%= form.text_field :address, placeholder: 'Address' %>
+        How long have you known the applicant? 
+        <%= form.number_field :years, placeholder: 'number of years' %>
+        In what capacity have you known the application? 
+        <%= form.text_field :capacity, placeholder: 'capacity' %>
+        <div>
+          Recommendation rating:
+          <%= form.select :rating, options_for_select(
+            Rating.all.map{|rating| [rating.name, rating.id]}
+          ) %>
+        </div>
+      </div>
+      <div class="impressions">
+        <h2>General Impressions</h2>
+        <div>
+          <p>Ability to communication with others: </p>
+          <%= form.select :communication, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+        <div>
+          <p>Motivation to work with special needs children: </p>
+          <%= form.select :motivation, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+        <div>
+          <p>Work habits: </p>
+          <%= form.select :habits, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+        <div>
+          <p>Sense of responsibility and reliability: </p>
+          <%= form.select :responsibility, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+        <div>
+          <p>Personality: </p>
+          <%= form.select :personality, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+        <div>
+          <p>Poise, emotional stability, and maturity: </p>
+          <%= form.select :maturity, options_for_select(
+            Impression.all.map{|impression| [impression.name, impression.id]}
+          ) %>
+        </div>
+      </div>
+      <div class="recommendation">
+        <h2>Written Recommendation</h2>
+        <%= form.file_field :recommendation %>
+      </div>
+    </div>
+    <input type="submit" name="commit" value="Submit recommendation" data-disable-with="Submit recommendation">
+  </div>
+<% end %>
+
