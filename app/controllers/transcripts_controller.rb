@@ -29,7 +29,8 @@ class TranscriptsController < ApplicationController
 
     respond_to do |format|
       if @transcript.save
-        format.html { redirect_to institutions_path }
+        format.html { redirect_to dashboard_home_path, notice: 'Transcript was successfully created.' }
+        format.json { render :show, status: :ok, location: @transcript }
       else
         format.html { render :new }
         format.json { render json: @transcript.errors, status: :unprocessable_entity }

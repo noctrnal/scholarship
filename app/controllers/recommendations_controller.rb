@@ -54,7 +54,7 @@ class RecommendationsController < ApplicationController
   def update
     respond_to do |format|
       if @recommendation.update(recommendation_params)
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Recommendation was successfully updated.' }
         format.json { render :show, status: :ok, location: @recommendation }
       else
         format.html { render :edit }

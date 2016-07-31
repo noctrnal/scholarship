@@ -8,9 +8,23 @@ $pantone-blue: #001489;
     background-image: url("/logo-left.png");
     background-position: right bottom;
     background-repeat: no-repeat;
+    display: table;
     float: left;
     min-height: inherit;
+    overflow: hidden;
     width: 35%;
+
+    div {
+      color: white;
+      display: table-cell;
+      padding: 0 1em 0 1em;
+      text-align: center;
+      vertical-align: middle;
+
+      p {
+        font-size: 2em;
+      }
+    }
   }
   .splash-header-primary {
     background-color: #1564d0;
