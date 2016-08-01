@@ -88,7 +88,7 @@ Rails.application.configure do
   # Mailer settings
   config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.default_url_options = { :host => 'scholarship.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'scholarship.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
