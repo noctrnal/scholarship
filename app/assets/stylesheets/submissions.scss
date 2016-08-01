@@ -153,6 +153,15 @@ label, select {
   }
 }
 
+.main {
+  padding: 5em 2em 2em 2em;
+
+  > div {
+    background-color: white;
+    padding: 1em;
+  }
+}
+
 .motivation {
   > div {
     padding: 0 1em 0 1em;

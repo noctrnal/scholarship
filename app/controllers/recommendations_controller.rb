@@ -1,4 +1,5 @@
 class RecommendationsController < ApplicationController
+  before_action :authenticate_user!, except: [:edit, :update]
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
 
   # GET /recommendations

@@ -1,4 +1,6 @@
 class InstitutionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @submission = Submission.find_by_user_id(current_user.id)
     if @submission

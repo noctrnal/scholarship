@@ -10,38 +10,11 @@
   </head>
 
   <body>
-    <header class="navigation" role="banner">
-      <ul>
-        <% if false %>
-        <li class="nav-link">
-          <% if user_signed_in? %>
-            <%= link_to('Edit registration', edit_user_registration_path) %>
-          <% else %>
-            <%= link_to('Register', new_user_registration_path) %>
-          <% end %>
-        </li>
-        <% end %>
-        <% if user_signed_in? %>
-          <li class="nav-link">
-            <%= link_to('Submit application', new_submission_path) %>
-          </li>
-          <li class="nav-link">
-            <%= link_to('Submit transcript', new_transcript_path) %>
-          </li>
-          <li class="nav-link">
-            <%= link_to('Request recommendation', new_recommendation_path) %>
-          </li>
-          <li class="nav-link">
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          </li>
-        <% else %>
-          <li class="nav-link">
-            <%= link_to('Login', new_user_session_path) %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-    <%= yield %>
+    <!-- <div class="wrapper-for-content-outside-of-footer"> -->
+      <%= render "layouts/header" %>
+      <%= yield %>
+    <!-- </div> -->
+    <!--<%= render "layouts/footer" %> -->
   </body>
 </html>
 

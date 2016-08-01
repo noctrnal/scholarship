@@ -1,6 +1,7 @@
-<h1>Editing Submission</h1>
+<div class="submissions">
+  <h1>Editing Scholarship Application</h1>
+  <div class="submission-form">
+    <%= render 'form', submission: @submission %>
+  </div>
+</div>
 
-<%= render 'form', submission: @submission %>
-
-<%= link_to 'Show', @submission %> |
-<%= link_to 'Back', submissions_path %>
