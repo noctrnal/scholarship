@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20160731003122) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -27,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.date     "end"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_employments_on_submission_id"
+    t.index ["submission_id"], name: "index_employments_on_submission_id", using: :btree
   end
 
   create_table "fields", force: :cascade do |t|
@@ -41,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_honors_on_submission_id"
+    t.index ["submission_id"], name: "index_honors_on_submission_id", using: :btree
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -59,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.float    "gpa"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_institutions_on_submission_id"
+    t.index ["submission_id"], name: "index_institutions_on_submission_id", using: :btree
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -92,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "recommendation_content_type"
     t.integer  "recommendation_file_size"
     t.datetime "recommendation_updated_at"
-    t.index ["submission_id"], name: "index_recommendations_on_submission_id"
+    t.index ["submission_id"], name: "index_recommendations_on_submission_id", using: :btree
   end
 
   create_table "relatives", force: :cascade do |t|
@@ -105,12 +107,12 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.integer  "zip"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_relatives_on_submission_id"
+    t.index ["submission_id"], name: "index_relatives_on_submission_id", using: :btree
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -118,12 +120,12 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "permanent_city"
     t.string   "permanent_state"
     t.integer  "permanent_zip"
-    t.integer  "permanent_phone",       limit: 9
+    t.integer  "permanent_phone"
     t.string   "current_address"
     t.string   "current_city"
     t.string   "current_state"
     t.integer  "current_zip"
-    t.integer  "current_phone",         limit: 9
+    t.integer  "current_phone"
     t.boolean  "citizen"
     t.integer  "field_id"
     t.text     "field_explanation"
@@ -158,7 +160,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "frequency"
     t.text     "motivation"
     t.integer  "user_id"
-    t.         "start_date"
+    t.datetime "start_date"
     t.string   "license_file_name"
     t.string   "license_content_type"
     t.integer  "license_file_size"
@@ -171,9 +173,9 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "expense_content_type"
     t.integer  "expense_file_size"
     t.datetime "expense_updated_at"
-    t.index ["degree_id"], name: "index_submissions_on_degree_id"
-    t.index ["field_id"], name: "index_submissions_on_field_id"
-    t.index ["user_id"], name: "index_submissions_on_user_id"
+    t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
+    t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
+    t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
   end
 
   create_table "transcripts", force: :cascade do |t|
@@ -184,7 +186,7 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
-    t.index ["institution_id"], name: "index_transcripts_on_institution_id"
+    t.index ["institution_id"], name: "index_transcripts_on_institution_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -201,9 +203,9 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "submission_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["submission_id"], name: "index_users_on_submission_id"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["submission_id"], name: "index_users_on_submission_id", using: :btree
   end
 
   create_table "volunteers", force: :cascade do |t|
@@ -211,7 +213,18 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_volunteers_on_submission_id"
+    t.index ["submission_id"], name: "index_volunteers_on_submission_id", using: :btree
   end
 
+  add_foreign_key "employments", "submissions"
+  add_foreign_key "honors", "submissions"
+  add_foreign_key "institutions", "submissions"
+  add_foreign_key "recommendations", "submissions"
+  add_foreign_key "relatives", "submissions"
+  add_foreign_key "submissions", "degrees"
+  add_foreign_key "submissions", "fields"
+  add_foreign_key "submissions", "users"
+  add_foreign_key "transcripts", "institutions"
+  add_foreign_key "users", "submissions"
+  add_foreign_key "volunteers", "submissions"
 end

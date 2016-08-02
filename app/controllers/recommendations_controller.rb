@@ -18,7 +18,7 @@ class RecommendationsController < ApplicationController
     if current_user.submission
       @recommendation = Recommendation.new
     else
-      redirect_to dashboard_home_path
+      redirect_to dashboard_home_path, :notice => "Please complete scholarship application first."
     end
   end
 

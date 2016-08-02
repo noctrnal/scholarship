@@ -6,7 +6,7 @@ class InstitutionsController < ApplicationController
     if @submission
       @institutions = Institution.where(:submission_id => @submission.id)
     else
-      redirect_to dashboard_home_path
+      redirect_to dashboard_home_path, :notice => "Please complete scholarship application first."
     end
   end
 end
