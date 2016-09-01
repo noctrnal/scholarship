@@ -25,5 +25,9 @@ class Submission < ApplicationRecord
   def field
     Field.find(degree_id)
   end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
 

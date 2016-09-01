@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="actions">
-    <p><span>Applicant</span>: Jimmy Pearson</p>
-    <p><span>Proposed field of study</span>: Art Therapy</p>
+    <p><span>Applicant</span>: <%= @submission.name %></p>
+    <p><span>Proposed field of study</span>: <%= @submission.field.name %></p>
     <p>The applicant has been asked to secure evaluations from instructors, employers, and/or others who know him/her and his/her capabilities.</p>
     <p>Use the comments section to refer to the applicant's strong and weak points. This is most useful to the National Scholarship Committee when making its decision. Since the purpose of the NAJA Scholarship is to help graduate students who will work DIRECTLY with children with special and particular needs, please comment on this applicant's goals in this respect.</p>
     <div class="clearfix">
