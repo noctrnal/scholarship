@@ -199,7 +199,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 2.3)
+  aws-sdk
   bourbon (~> 5.0beta)
   byebug
   coffee-rails (~> 4.1.0)

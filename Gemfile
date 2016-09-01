@@ -53,7 +53,7 @@ gem 'nested_form_fields'
 
 # Use Paperclip for file uploads
 gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk'
 
 # Use secure tokens for recommendation submissions
 gem 'has_secure_token'
