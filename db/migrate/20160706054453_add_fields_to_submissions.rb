@@ -7,12 +7,12 @@ class AddFieldsToSubmissions < ActiveRecord::Migration[5.0]
     add_column :submissions, :permanent_city, :string
     add_column :submissions, :permanent_state, :string
     add_column :submissions, :permanent_zip, :integer
-    add_column :submissions, :permanent_phone, :integer, :precision => 9
+    add_column :submissions, :permanent_phone, :string
     add_column :submissions, :current_address, :string
     add_column :submissions, :current_city, :string
     add_column :submissions, :current_state, :string
     add_column :submissions, :current_zip, :integer
-    add_column :submissions, :current_phone, :integer, :precision => 9
+    add_column :submissions, :current_phone, :string
     add_column :submissions, :citizen, :boolean
     add_reference :submissions, :field, foreign_key: true
     add_column :submissions, :field_explanation, :text

@@ -23,7 +23,7 @@
         <%= form.check_box :citizen %>
         <p>Adobe PDF of your driver's license:</p>
         <%= form.file_field :license %>
-        <% if @submission.license %>
+        <% if @submission.license.present? %>
           <%= link_to 'View license', @submission.license.url %>
         <% end %>
       </div>
@@ -54,7 +54,7 @@
       <div>
         <p>Adobe PDF of your resume:</p>
         <%= form.file_field :resume %>
-        <% if @submission.resume %>
+        <% if @submission.resume.present? %>
           <%= link_to 'View resume', @submission.resume.url %>
         <% end %>
       </div>
@@ -173,7 +173,7 @@
       <div>
         <p>Adobe PDF of the institution's expense page(s) from the current school catalog:</p>
         <%= form.file_field :expense %>
-        <% if @submission.expense %>
+        <% if @submission.expense.present? %>
           <%= link_to 'View expense page(s)', @submission.expense.url %>
         <% end %>
       </div>
