@@ -102,7 +102,8 @@
         <div>
           <%= form.label :field_id, 'Proposed field of study:' %>
           <%= form.select :field_id, options_for_select(
-            Field.all.map{|field| [field.name, field.id]}
+            Field.all.map{|field| [field.name, field.id]},
+            @submission.field_id
           ) %>
         </div>
         <div>
@@ -111,7 +112,8 @@
         <div>
           <%= form.label :degree_id, 'Degree you will work to obtain:' %>
           <%= form.select :degree_id, options_for_select(
-            Degree.all.map{|degree| [degree.name, degree.id]}
+            Degree.all.map{|degree| [degree.name, degree.id]},
+            @submission.degree_id
           ) %>
         </div>
         <div>

@@ -27,7 +27,7 @@ User.create(:email => 'user@example.com', :password => 'password')
   'Reading Specialist',
   'Recreation Therapy',
   'Social Work',
-  'Speical Education (all areas)',
+  'Special Education (all areas)',
   'Speech, Hearing, or Language Pathology',
   'Other',
 ].each do |field|
