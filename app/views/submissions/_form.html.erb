@@ -36,7 +36,7 @@
         <%= form.phone_field :permanent_phone, placeholder: 'Permanent phone number' %>
       </div>
       <div>
-        <h3>Current address</h3>
+        <h3>Current address <span>(if different)</span></h3>
         <%= form.text_field :current_address, placeholder: 'Current address' %>
         <%= form.text_field :current_city, placeholder: 'Current city' %>
         <%= form.text_field :current_state, placeholder: 'Current state' %>
@@ -65,10 +65,12 @@
     </div>
     <div class="honors">
       <h2>Honors, scholarships, or special recognitions</h2>
+      <p>At least 4 are required.</p>
       <%= render :partial => 'honors', :locals => {:form => form} %>
     </div>
     <div class="volunteers">
       <h2>Civic or cultural involvements and volunteerisms</h2>
+      <p>At least 4 are required.</p>
       <%= render :partial => 'volunteers', :locals => {:form => form} %>
     </div>
     <div class="anticipated-institution-information clearfix">

@@ -173,6 +173,11 @@ label, select {
     display: inline-block;
     vertical-align: top;
     width: 33%;
+
+    span {
+      font-weight: normal;
+      font-size: 80%;
+    }
   }
 
   div:nth-of-type(odd) {
