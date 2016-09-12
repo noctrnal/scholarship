@@ -2,8 +2,8 @@ $pantone-blue: #001489;
 
 .splash-header {
   background-image: linear-gradient(#001489, #1564d0);
-  min-height: 35em;
   margin: 0;
+  height: 35em;
   padding: 0;
 
   .splash-header-secondary {
@@ -11,7 +11,7 @@ $pantone-blue: #001489;
     background-position: right bottom;
     background-repeat: no-repeat;
     float: left;
-    min-height: inherit;
+    height: inherit;
     overflow: hidden;
     padding: 5% 0;
     width: 35%;
@@ -34,7 +34,7 @@ $pantone-blue: #001489;
     background-position: left bottom;
     background-repeat: no-repeat;
     float: right;
-    min-height: inherit;
+    height: inherit;
     overflow: hidden;
     padding: 5% 0;
     width: 65%;
@@ -55,21 +55,38 @@ $pantone-blue: #001489;
 }
 
 .splash-content {
-  min-height: 35em;
+  margin: 0;
+  height: 35em;
+  padding: 0;
 
   .splash-content-secondary {
     background-image: url("/splash-content.jpg");
     background-repeat: no-repeat;
+    background-position: right center;
     float: left;
-    min-height: inherit;
+    height: inherit;
+    overflow: hidden;
+    padding: 5% 0;
     width: 35%;
+
+    div {
+      color: white;
+      padding: 20% 1em 0 1em;
+      text-align: center;
+      vertical-align: middle;
+
+      p {
+        font-size: 2em;
+        padding: 10% 0;
+      }
+    }
   }
   .splash-content-primary {
     background-color: white;
-    display: table;
     float: right;
-    min-height: inherit;
+    height: inherit;
     overflow: hidden;
+    padding: 5% 0;
     width: 65%;
 
     div {
