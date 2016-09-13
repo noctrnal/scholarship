@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731003122) do
+ActiveRecord::Schema.define(version: 20160913185328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,8 @@ ActiveRecord::Schema.define(version: 20160731003122) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
+    t.string   "email"
+    t.string   "token"
     t.index ["institution_id"], name: "index_transcripts_on_institution_id", using: :btree
   end
 

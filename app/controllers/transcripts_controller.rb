@@ -17,6 +17,7 @@ class TranscriptsController < ApplicationController
   def new
     if current_user.submission
       @transcript = Transcript.new
+      @submission = Submission.find_by_user_id(current_user.id)
     else
       redirect_to dashboard_home_path, :notice => "Please complete scholarship application first."
     end
@@ -28,20 +29,17 @@ class TranscriptsController < ApplicationController
       redirect_to root_path
     end
 
-    @submission = @transcript.submission
+    @submission = @transcript.institution.submission
   end
 
   # POST /transcripts
   # POST /transcripts.json
   def create
     @transcript = Transcript.new(transcript_params)
-    @submission = Submission.find_by_user_id(current_user.id)
-    @transcript.submission_id = @submission.id
 
     respond_to do |format|
       if @transcript.save
-        # TODO: add the following mailer
-        # TranscriptRequestMailer.transcript_request(@transcript).deliver
+        TranscriptRequestMailer.transcript_request(@transcript).deliver
         format.html { redirect_to dashboard_home_path, notice: 'Transcript was successfully created.' }
         format.json { render :show, status: :ok, location: @transcript }
       else
@@ -54,11 +52,11 @@ class TranscriptsController < ApplicationController
   # PATCH/PUT /transcripts/1
   # PATCH/PUT /transcripts/1.json
   def update
-    @submission = @transcripts.submission
+    @submission = @transcript.institution.submission
 
     respond_to do |format|
       if @transcript.update(transcript_params)
-        format.html { redirect_to @transcript, notice: 'Transcript was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Transcript was successfully updated.' }
         format.json { render :show, status: :ok, location: @transcript }
       else
         format.html { render :edit }

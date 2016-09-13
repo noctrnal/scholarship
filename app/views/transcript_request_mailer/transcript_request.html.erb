@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Official transcript request</h1>
+    <p>
+    <%= @submission.name %> is applying for a NAJA scholarship and is requesting an official transcript from your institution. Click <%= link_to('here', edit_transcript_url(:id => @transcript.id, :token => @transcript.token)) %> to submit the transcript.
+    </p>
+    <p>Thank you for your time,</p>
+    <p>National Association of Junior Auxiliaries, Inc.</p>
+  </body>
+</html>
+

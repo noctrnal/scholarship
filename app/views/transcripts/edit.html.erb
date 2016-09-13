@@ -1,6 +1,7 @@
-<h1>Editing Transcript</h1>
+<div class="main">
+  <h1>Submit Official Transcript</h1>
+  <div>
+    <%= render 'edit', transcript: @transcript %>
+  </div>
+</div>
 
-<%= render 'form', transcript: @transcript %>
-
-<%= link_to 'Show', @transcript %> |
-<%= link_to 'Back', transcripts_path %>

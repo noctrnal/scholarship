@@ -11,9 +11,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.file_field :upload %>
-    <%= form.hidden_field :institution_id, :value => transcript[:institution_id] %>
-    <%= form.submit 'Upload Transcript' %>
+  <div class="actions transcript-create">
+    <div>
+      <%= form.select :institution_id, options_for_select(
+      Institution.where(:submission_id => @submission.id)
+        .map{|institution| [institution.name, institution.id]}
+      ) %>
+    </div>
+    <div>
+      <%= form.text_field :email, placeholder: 'Email address', :autofocus => true %>
+    </div>
+    <div><%= form.submit 'Request transcript' %></div>
   </div>
 <% end %>
