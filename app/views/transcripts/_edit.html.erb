@@ -13,7 +13,7 @@
 
   <div class="actions">
     <p><span>Applicant</span>: <%= @submission.name %></p>
-    <p><span>Proposed field of study</span>: <%= @submission.field.name %></p>
+    <p><span>Institution</span>: <%= @transcript.institution.name %></p>
     <p>The applicant has been asked to secure official transcripts from previously attended institutions.</p>
     <p>Please use the form below to upload a PDF of the applicant's official trascript.</p>
     <%= form.file_field :upload %>
