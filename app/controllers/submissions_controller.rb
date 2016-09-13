@@ -42,6 +42,7 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.save
+        SubmissionMailer.submission_confirmation(@submission).deliver
         format.html { redirect_to dashboard_home_path, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @submission }
       else
@@ -56,6 +57,7 @@ class SubmissionsController < ApplicationController
   def update
     respond_to do |format|
       if @submission.update(submission_params)
+        SubmissionMailer.submission_confirmation(@submission).deliver
         format.html { redirect_to dashboard_home_path, notice: 'Application was successfully updated.' }
         format.json { render :show, status: :ok, location: @submission }
       else

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>NAJA Scholarship has been submitted!</h1>
+    <p>
+    <%= @submission.name %> has applied for a NAJA scholarship. Click <%= link_to('here', edit_submission_url(:id => @submission.id)) %> to view or edit the application.
+    </p>
+    <p>Thank you for your time,</p>
+    <p>National Association of Junior Auxiliaries, Inc.</p>
+  </body>
+</html>
+
