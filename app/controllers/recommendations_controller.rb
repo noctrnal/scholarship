@@ -57,6 +57,7 @@ class RecommendationsController < ApplicationController
 
     respond_to do |format|
       if @recommendation.update(recommendation_params)
+        RecommendationMailer.recommendation_confirmation(@recommendation).deliver
         format.html { redirect_to root_url, notice: 'Recommendation was successfully updated.' }
         format.json { render :show, status: :ok, location: @recommendation }
       else

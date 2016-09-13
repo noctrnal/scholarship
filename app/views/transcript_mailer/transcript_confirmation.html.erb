@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Official transcript has been submitted!</h1>
+    <p>
+    <%= @transcript.institution.name %> has submitted an official transcript. Click <%= link_to('here', @transcript.upload.url) %> to view the transcript.
+    </p>
+    <p>Thank you for your time,</p>
+    <p>National Association of Junior Auxiliaries, Inc.</p>
+  </body>
+</html>
+

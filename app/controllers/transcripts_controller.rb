@@ -56,6 +56,7 @@ class TranscriptsController < ApplicationController
 
     respond_to do |format|
       if @transcript.update(transcript_params)
+        TranscriptMailer.transcript_confirmation(@transcript).deliver
         format.html { redirect_to root_url, notice: 'Transcript was successfully updated.' }
         format.json { render :show, status: :ok, location: @transcript }
       else
