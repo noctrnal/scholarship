@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :institutions
-  resources :transcripts
-  resources :recommendations
-  resources :submissions
+  resources :institutions, only: [:index]
+  resources :transcripts, only: [:new, :edit, :create, :update]
+  resources :recommendations, only: [:new, :edit, :create, :update]
+  resources :submissions, only: [:new, :edit, :create, :update]
   get 'dashboard/home'
 
   devise_for :users

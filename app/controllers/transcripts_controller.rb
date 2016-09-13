@@ -1,4 +1,5 @@
 class TranscriptsController < ApplicationController
+  before_action :authenticate_user!, except: [:edit, :update]
   before_action :set_transcript, only: [:show, :edit, :update, :destroy]
 
   # GET /transcripts
@@ -14,21 +15,33 @@ class TranscriptsController < ApplicationController
 
   # GET /transcripts/new
   def new
-    @transcript = Transcript.new
-    @transcript.institution_id = params[:institution_id]
+    if current_user.submission
+      @transcript = Transcript.new
+    else
+      redirect_to dashboard_home_path, :notice => "Please complete scholarship application first."
+    end
   end
 
   # GET /transcripts/1/edit
   def edit
+    unless params[:token] == @transcript.token
+      redirect_to root_path
+    end
+
+    @submission = @transcript.submission
   end
 
   # POST /transcripts
   # POST /transcripts.json
   def create
     @transcript = Transcript.new(transcript_params)
+    @submission = Submission.find_by_user_id(current_user.id)
+    @transcript.submission_id = @submission.id
 
     respond_to do |format|
       if @transcript.save
+        # TODO: add the following mailer
+        # TranscriptRequestMailer.transcript_request(@transcript).deliver
         format.html { redirect_to dashboard_home_path, notice: 'Transcript was successfully created.' }
         format.json { render :show, status: :ok, location: @transcript }
       else
@@ -41,6 +54,8 @@ class TranscriptsController < ApplicationController
   # PATCH/PUT /transcripts/1
   # PATCH/PUT /transcripts/1.json
   def update
+    @submission = @transcripts.submission
+
     respond_to do |format|
       if @transcript.update(transcript_params)
         format.html { redirect_to @transcript, notice: 'Transcript was successfully updated.' }
