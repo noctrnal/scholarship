@@ -1,0 +1,37 @@
+<h1>Application checklist</h1>
+
+<ul class="application-checklist">
+  <li>
+    <% if @checklist[:application] %>
+      <span class="green">Application is submitted.</span>
+    <% else %>
+      <span class="red">Application is not submitted.</span>
+    <% end %>
+  </li>
+  <li>
+    <% if @checklist[:recommendations] %>
+      <span class="green">Recommendations have been received.</span>
+      <p><%= @recommendations.count %> of 3 recommendations have been received.</p>
+    <% else %>
+      <span class="red">Recommendations have not been received.</span>
+      <p><%= @recommendations.count %> of 3 recommendations have been received.</p>
+    <% end %>
+  </li>
+  <li>
+    <% if @checklist[:transcripts] %>
+      <span class="green">Transcript(s) have been received.</span>
+      <p><%= "#{@transcripts.count} of #{@institutions.count}"%> transcripts have been received.</p>
+    <% else %>
+      <span class="red">Transcript(s) have not been received.</span>
+      <p><%= "#{@transcripts.count} of #{@institutions.count}"%> transcripts have been received.</p>
+    <% end %>
+  </li>
+  <li>
+    <% if @checklist[:approval] %>
+      <span class="green">Application is approved.</span>
+    <% else %>
+      <span class="red">Application is not approved.</span>
+      <p>Once all parts of your application have been received, your application will go to NAJA for approval.</p>
+    <% end %>
+  </li>
+</ul>
