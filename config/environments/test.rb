@@ -40,6 +40,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.default_url_options = { :host => 'scholarship-staging.heroku.com' }
 
   ActionMailer::Base.smtp_settings = {
