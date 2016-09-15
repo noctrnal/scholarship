@@ -36,7 +36,6 @@ class Submission < ApplicationRecord
   validates :institution_city, :presence => true
   validates :institution_state, :presence => true
   validates :acceptance, :presence => true
-  validates :last_year, :presence => true
   validates :summer_tuition, :presence => true
   validates :summer_books, :presence => true
   validates :summer_board, :presence => true
