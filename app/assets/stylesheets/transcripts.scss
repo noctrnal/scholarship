@@ -12,6 +12,10 @@
     width: 49%;
   }
 
+  div:first-of-type {
+    float: left;
+  }
+
   div:last-of-type {
     display: block;
   }
