@@ -37,37 +37,37 @@
       </div>
       <div class="impressions">
         <h2>General Impressions</h2>
-        <div>
+        <div class="clearfix">
           <p>Ability to communication with others: </p>
           <%= form.select :communication, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}
           ) %>
         </div>
-        <div>
+        <div class="clearfix">
           <p>Motivation to work with special needs children: </p>
           <%= form.select :motivation, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}
           ) %>
         </div>
-        <div>
+        <div class="clearfix">
           <p>Work habits: </p>
           <%= form.select :habits, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}
           ) %>
         </div>
-        <div>
+        <div class="clearfix">
           <p>Sense of responsibility and reliability: </p>
           <%= form.select :responsibility, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}
           ) %>
         </div>
-        <div>
+        <div class="clearfix">
           <p>Personality: </p>
           <%= form.select :personality, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}
           ) %>
         </div>
-        <div>
+        <div class="clearfix">
           <p>Poise, emotional stability, and maturity: </p>
           <%= form.select :maturity, options_for_select(
             Impression.all.map{|impression| [impression.name, impression.id]}

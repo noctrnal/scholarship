@@ -42,6 +42,7 @@
 
 .application-checklist {
   columns: 1!important;
+  -moz-columns: 1!important;
 
   li {
     padding-bottom: 1em;

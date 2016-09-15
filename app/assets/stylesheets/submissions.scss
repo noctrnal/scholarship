@@ -109,6 +109,22 @@ label, select {
   }
 }
 
+.error::-webkit-input-placeholder {
+  color: red!important;
+}
+
+.error:-moz-placeholder { /* Firefox 18- */
+  color: red;
+}
+
+.error::-moz-placeholder {  /* Firefox 19+ */
+  color: red;
+}
+
+.error:-ms-input-placeholder {
+  color: red!important;
+}
+
 .honors {
   display: inline-block;
   vertical-align: top;

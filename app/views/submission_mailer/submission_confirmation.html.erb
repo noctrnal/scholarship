@@ -4,10 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>NAJA Scholarship has been submitted!</h1>
-    <p>
-    <%= @submission.name %> has applied for a NAJA scholarship. Click <%= link_to('here', edit_submission_url(:id => @submission.id)) %> to view or edit the application.
-    </p>
+    <% if @submission.created_at == @submission.updated_at %>
+      <h1>A NAJA Scholarship has been submitted!</h1>
+      <p><%= @submission.name %> has applied for a NAJA scholarship.</p>
+    <% else %>
+      <h1>A NAJA Scholarship has been updated!</h1>
+      <p><%= @submission.name %> has updated a NAJA scholarship.</p>
+    <% end %>
+    <p>Click <%= link_to('here', edit_submission_url(:id => @submission.id)) %> to view or edit the application.</p>
     <p>Thank you for your time,</p>
     <p>National Association of Junior Auxiliaries, Inc.</p>
   </body>

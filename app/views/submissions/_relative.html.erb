@@ -2,24 +2,24 @@
   <%= form.nested_fields_for :relatives do |relative| %>
     <div>
       <div>
-        <%= relative.text_field :name, placeholder: 'Name' %>
+        <%= relative.text_field :name, :class => field_class(@submission, :permanent_address), placeholder: 'Name' %>
       </div>
       <div>
-        <%= relative.text_field :relationship, placeholder: 'Relationship' %>
+        <%= relative.text_field :relationship, :class => field_class(@submission, :permanent_address), placeholder: 'Relationship' %>
       </div>
     </div>
     <div>
       <div>
-        <%= relative.text_field :address, placeholder: 'Address' %>
+        <%= relative.text_field :address, :class => field_class(@submission, :permanent_address), placeholder: 'Address' %>
       </div>
       <div>
-        <%= relative.text_field :city, placeholder: 'City' %>
+        <%= relative.text_field :city, :class => field_class(@submission, :permanent_address), placeholder: 'City' %>
       </div>
       <div>
-        <%= relative.text_field :state, placeholder: 'State' %>
+        <%= relative.text_field :state, :class => field_class(@submission, :permanent_address), placeholder: 'State' %>
       </div>
       <div>
-        <%= relative.number_field :zip, placeholder: 'Zip' %>
+        <%= relative.number_field :zip, :class => field_class(@submission, :permanent_address), placeholder: 'Zip' %>
       </div>
     </div>
   <% end %>
