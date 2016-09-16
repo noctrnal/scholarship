@@ -24,3 +24,14 @@
     <div><%= form.submit 'Request transcript' %></div>
   </div>
 <% end %>
+
+<h2 class="transcripts-previously-submitted">Previously Submitted Transcripts</h2>
+
+<ul>
+<% @transcripts.each do |transcript| %>
+  <li>
+    <%= link_to transcript.institution.name, transcript.upload.url %>
+  </li>
+<% end %>
+</ul>
+

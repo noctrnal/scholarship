@@ -18,6 +18,7 @@ class TranscriptsController < ApplicationController
     if current_user.submission
       @transcript = Transcript.new
       @submission = Submission.find_by_user_id(current_user.id)
+      @transcripts = Transcript.where(:institution => [@submission.institutions.pluck(:id)])
     else
       redirect_to dashboard_home_path, :notice => "Please complete scholarship application first."
     end
