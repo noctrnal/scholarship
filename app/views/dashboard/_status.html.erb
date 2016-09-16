@@ -20,10 +20,10 @@
   <li>
     <% if @checklist[:recommendations] %>
       <span class="green">Recommendations have been received.</span>
-      <p><%= @recommendations.count %> of 3 recommendations have been received.</p>
+      <p><%= @recommendations.count %> of <%= @required %> recommendations have been received.</p>
     <% else %>
       <span class="red">Recommendations have not been received.</span>
-      <p><%= @recommendations.count %> of 3 recommendations have been received.</p>
+      <p><%= @recommendations.count %> of <%= @required %> recommendations have been received.</p>
     <% end %>
   </li>
   <li>

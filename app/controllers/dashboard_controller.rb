@@ -38,9 +38,10 @@ class DashboardController < ApplicationController
   end
 
   def recommendations_status
+    @required = @submission.reapply ? 2 : 3
     @recommendations = @submission.recommendations.
       where.not(:recommendation_updated_at => nil)
-    increase_percentage_if(@recommendations.count > 2)
+    increase_percentage_if(@recommendations.count >= @required)
   end
 
   def transcripts_status

@@ -13,6 +13,10 @@
 
   <div class="actions">
     <div class="personal-information">
+      <p class="reapply">
+        <%= form.check_box :reapply %>
+        <%= form.label :reapply, 'This is a repplication.' %>
+      </p>
       <h2>Personal information</h2>
       <div>
         <h3>Name</h3>
@@ -21,11 +25,13 @@
         <%= form.text_field :last_name, :class => field_class(@submission, :last_name), placeholder: 'Last name' %>
         <%= form.label :citizen, 'I am a U.S. citizen.', :class => field_class(@submission, :citizen) %>
         <%= form.check_box :citizen %>
-        <p class="<%= field_class(@submission, :license) %>">Adobe PDF of your driver's license:</p>
-        <%= form.file_field :license %>
-        <% if @submission.license.present? %>
-          <%= link_to 'View license', @submission.license.url %>
-        <% end %>
+        <div class="not-required-on-reapply">
+          <p class="<%= field_class(@submission, :license) %>">Adobe PDF of your driver's license:</p>
+          <%= form.file_field :license %>
+          <% if @submission.license.present? %>
+            <%= link_to 'View license', @submission.license.url %>
+          <% end %>
+        </div>
       </div>
       <div>
         <h3>Permanent address</h3>
@@ -48,30 +54,36 @@
       <h2>Nearest relative</h2>
       <%= render :partial => 'relative', :locals => {:form => form} %>
     </div>
-    <div class="employments">
-      <h2>Employment history</h2>
-      <%= render :partial => 'employment', :locals => {:form => form} %>
-      <div>
-        <p class="<%= field_class(@submission, :resume)  %>">Adobe PDF of your resume:</p>
-        <%= form.file_field :resume %>
-        <% if @submission.resume.present? %>
-          <%= link_to 'View resume', @submission.resume.url %>
-        <% end %>
+    <div class="not-required-on-reapply">
+      <div class="employments">
+        <h2>Employment history</h2>
+        <%= render :partial => 'employment', :locals => {:form => form} %>
+        <div>
+          <p class="<%= field_class(@submission, :resume)  %>">Adobe PDF of your resume:</p>
+          <%= form.file_field :resume %>
+          <% if @submission.resume.present? %>
+            <%= link_to 'View resume', @submission.resume.url %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="institutions">
       <h2>Institutions attended</h2>
       <%= render :partial => 'institutions', :locals => {:form => form} %>
     </div>
-    <div class="honors">
-      <h2>Honors, scholarships, or special recognitions</h2>
-      <p>At least 4 are required.</p>
-      <%= render :partial => 'honors', :locals => {:form => form} %>
+    <div class="not-required-on-reapply">
+      <div class="honors">
+        <h2>Honors, scholarships, or special recognitions</h2>
+        <p>At least 4 are required.</p>
+        <%= render :partial => 'honors', :locals => {:form => form} %>
+      </div>
     </div>
-    <div class="volunteers">
-      <h2>Civic or cultural involvements and volunteerisms</h2>
-      <p>At least 4 are required.</p>
-      <%= render :partial => 'volunteers', :locals => {:form => form} %>
+    <div class="not-required-on-reapply">
+      <div class="volunteers">
+        <h2>Civic or cultural involvements and volunteerisms</h2>
+        <p>At least 4 are required.</p>
+        <%= render :partial => 'volunteers', :locals => {:form => form} %>
+      </div>
     </div>
     <div class="anticipated-institution-information clearfix">
       <h2>Future education information</h2>
@@ -181,10 +193,12 @@
         <% end %>
       </div>
     </div>
-    <div class="motivation">
-      <h2>Motivation, commitment, and goals</h2>
-      <div>
-        <%= form.text_field :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
+    <div class="not-required-on-reapply">
+      <div class="motivation">
+        <h2>Motivation, commitment, and goals</h2>
+        <div>
+          <%= form.text_field :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
+        </div>
       </div>
     </div>
     <%= form.submit 'Submit Scholarship Application' %>

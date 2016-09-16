@@ -57,8 +57,8 @@ class Submission < ApplicationRecord
   validates :spring_other, :presence => true
   validates :spring_hours, :presence => true
   validates :frequency, :presence => true
-  validates :motivation, :presence => true
-  validates :license, attachment_presence: true
+  validates :motivation, :presence => true, :unless => :reapply?
+  validates :license, attachment_presence: true, :unless => :reapply?
   validates :resume, attachment_presence: true
   validates :expense, attachment_presence: true
 

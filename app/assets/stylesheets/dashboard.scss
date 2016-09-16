@@ -1,6 +1,7 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$pantone-blue: #001489;
 
 #svg circle {
   transition: stroke-dashoffset 1s linear;
@@ -46,6 +47,23 @@
 
   li {
     padding-bottom: 1em;
+  }
+}
+
+.dashboard {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  line-height: 2em;
+  margin-top: 2em;
+  width: 100%;
+
+  a {
+    font-weight: 600;
+  }
+
+  li {
+    min-height: 11em;
   }
 }
 

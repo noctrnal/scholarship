@@ -119,6 +119,7 @@ class SubmissionsController < ApplicationController
         :permanent_phone,
         :permanent_state,
         :permanent_zip,
+        :reapply,
         :resume,
         :spring_board,
         :spring_books,

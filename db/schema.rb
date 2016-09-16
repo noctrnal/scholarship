@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914032711) do
+ActiveRecord::Schema.define(version: 20160916042009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160914032711) do
     t.integer  "expense_file_size"
     t.datetime "expense_updated_at"
     t.boolean  "approval"
+    t.boolean  "reapply"
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
     t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree

@@ -185,6 +185,15 @@ label, select {
 }
 
 .personal-information {
+  .reapply {
+    font-size: 1.25em;
+  }
+
+  .not-required-on-reapply {
+    padding: 0!important;
+    width: 100%!important;
+  }
+
   div {
     display: inline-block;
     vertical-align: top;

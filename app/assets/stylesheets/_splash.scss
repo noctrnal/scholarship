@@ -104,35 +104,6 @@ $pantone-blue: #001489;
         }
       }
 
-      .dashboard {
-        li {
-          min-height: 10em;
-        }
-      }
-
-      ul {
-        columns: 2;
-        -webkit-columns: 2;
-        -moz-columns: 2;
-        line-height: 2em;
-        margin-top: 2em;
-        width: 100%;
-
-        li {
-          .orange{
-            color: orange;
-          }
-          .red {
-            color: red;
-          }
-          .blue {
-            color: $pantone-blue;
-          }
-          .green {
-            color: green;
-          }
-        }
-      }
       .splash-content-grid:nth-child(odd) {
         float: right;
         width: 50%;
@@ -141,6 +112,22 @@ $pantone-blue: #001489;
         float: left;
         width: 50%;
       }
+    }
+  }
+}
+
+.splash-reapply {
+  padding: 4em 5em 4em 5em;
+  margin: 0 auto 5em auto;
+  width: 60%;
+
+  .content {
+    color: white;
+
+    button {
+      color: #1564d0;
+      background: white;
+      margin: 2em 0 0 0;
     }
   }
 }

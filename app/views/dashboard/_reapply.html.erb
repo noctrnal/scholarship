@@ -1,0 +1,31 @@
+<h1>Received a NAJA Scholarship before?</h1>
+
+<p>Looking to reapply? The reapplication process is streamlined for returning applicants. In addition to the scholarship application, you'll only need a copy of your most recent transcript and two recommendations.</p>
+
+<ul class="dashboard">
+  <li>
+    <%= link_to new_submission_path, class: "white" do %>
+      1. Submit scholarship application
+      <p>Fill out and submit the scholarship application online. The application must be submitted before you will be able to proceed to the other parts.<p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_transcript_path, class: "white" do %>
+      2. Request transcript(s)
+      <p>Once your application is submitted, you will need to submit your most recent transcript since receiving a NAJA scholarship.</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_recommendation_path, class: "white" do %>
+      3. Request recommendation
+      <p>Once your application is submitted, you will need two recommendations. These are commonly from professors, employers, coworkers, and colleagues.</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to dashboard_status_path, class: "white" do %>
+      4. Check for status updates
+      <p>Once your application is complete, be sure to check back on updates on being selected!</p>
+    <% end %>
+  </li>
+</ul>
+
