@@ -50,6 +50,12 @@ $pantone-blue: #001489;
   }
 }
 
+#apply {
+  p {
+    color: black;
+  }
+}
+
 .dashboard {
   columns: 2;
   -webkit-columns: 2;

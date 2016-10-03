@@ -1,20 +1,29 @@
 <h1>So, what all do I need to do?</h1>
-<ul class="dashboard">
+<p>Please complete each step below by clicking on each one. Your application must be completed before you will be able to request transcripts or recommendations. Check back for status updates to see how close you are too completing your application!</p>
+<ul class="dashboard" id="apply">
   <li>
-    <%= link_to('1. Submit scholarship application', new_submission_path, class: "orange") %>
-    <p>Fill out and submit the scholarship application online. The application must be submitted before you will be able to proceed to the other parts.<p>
+    <%= link_to new_submission_path do %>
+      <span class="orange">1. Submit scholarship application</span>
+      <p>Fill out and submit the scholarship application online. The application must be submitted before you will be able to proceed to the other parts.<p>
+    <% end %>
   </li>
   <li>
-    <%= link_to('2. Request transcript(s)', new_transcript_path, class: "red") %>
-    <p>Once your application is submitted, you will need to submit a transcript for each higher education institution you've attended.</p>
+    <%= link_to new_transcript_path do %>
+      <span class="red">2. Request transcript(s)</span>
+      <p>Once your application is submitted, you will need to submit a transcript for each higher education institution you've attended.</p>
+    <% end %>
   </li>
   <li>
-    <%= link_to('3. Request recommendations', new_recommendation_path, class: "green") %>
-    <p>Once your application is submitted, you will need three recommendations. These are commonly from professors, employers, coworkers, and colleagues.</p>
+    <%= link_to new_recommendation_path do %>
+      <span class="green">3. Request recommendations</span>
+      <p>Once your application is submitted, you will need three recommendations. These are commonly from professors, employers, coworkers, and colleagues.</p>
+    <% end %>
   </li>
   <li>
-    <%= link_to('4. Check for status updates', dashboard_status_path) %>
-    <p>Once your application is complete, be sure to check back on updates on being selected!</p>
+    <%= link_to dashboard_status_path do %>
+      <span>4. Check for status updates</span>
+      <p>Once your application is complete, be sure to check back on updates on being selected!</p>
+    <% end %>
   </li>
 </ul>
 
