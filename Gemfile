@@ -9,8 +9,9 @@ gem 'puma'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-gem 'listen', '~> 3.0.5'
 gem 'pg'
+
+gem 'listen', '~> 3.0.5'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -62,6 +63,9 @@ gem 'has_secure_token'
 # Store sensitive data in environment variables
 gem 'figaro'
 
+# Use rails_admin for NAJA interface
+gem 'rails_admin', '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -73,6 +77,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

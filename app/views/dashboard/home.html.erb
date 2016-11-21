@@ -6,7 +6,11 @@
   </div>
   <div class="splash-header-primary">
     <div>
-      <%= render 'home' %>
+      <% if current_user.admin? %>
+        <%= render 'welcome-naja' %>
+      <% else %>
+        <%= render 'welcome-applicant' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -14,13 +18,19 @@
   <div class="splash-content-secondary"></div>
   <div class="splash-content-primary">
     <div>
-      <%= render 'options' %>
+      <% if current_user.admin? %>
+        <%= render 'options-naja' %>
+      <% else %>
+        <%= render 'options-applicant' %>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="splash-reapply">
-  <div class="content">
-    <%= render 'reapply' %>
+<% unless current_user.admin? %>
+  <div class="splash-reapply">
+    <div class="content">
+      <%= render 'reapply' %>
+    </div>
   </div>
-</div>
+<% end %>
 
