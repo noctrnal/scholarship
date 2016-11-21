@@ -3,7 +3,7 @@
     <li class="nav-link"><a href="/">Home</a></li>
     <li class="nav-link"><a href="/pages/about">Information</a></li>
     <li class="nav-link"><%= link_to 'Applicants', dashboard_home_path %></li>
-    <li class="nav-link"><%= link_to 'NAJA', dashboard_home_path %></li>
+    <li class="nav-link"><%= link_to 'NAJA', rails_admin.dashboard_path %></li>
     <% if user_signed_in? %>
       <li class="nav-link">
         <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
