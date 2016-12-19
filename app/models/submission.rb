@@ -59,7 +59,7 @@ class Submission < ApplicationRecord
   validates :frequency, :presence => true
   validates :motivation, :presence => true, :unless => :reapply?
   validates :license, attachment_presence: true, :unless => :reapply?
-  validates :resume, attachment_presence: true
+  validates :resume, attachment_presence: true, :unless => :reapply?
   validates :expense, attachment_presence: true
 
   def field
