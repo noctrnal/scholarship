@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :institutions, only: [:index]
+  resources :institutions, only: []
   resources :transcripts, only: [:new, :edit, :create, :update]
-  resources :recommendations, only: [:new, :edit, :create, :update]
-  resources :submissions, only: [:new, :edit, :create, :update]
+  resources :recommendations, only: [:show, :new, :edit, :create, :update]
+  resources :submissions, only: [:index, :show, :new, :edit, :create, :update]
 
   devise_for :users
 

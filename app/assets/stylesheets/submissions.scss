@@ -184,6 +184,12 @@ label, select {
   }
 }
 
+.no-bottom-border {
+  td {
+    border-bottom: none;
+  }
+}
+
 .personal-information {
   .reapply {
     font-size: 1.25em;
@@ -234,6 +240,27 @@ label, select {
         width: 50%;
       }
     }
+  }
+}
+
+.submissions {
+  padding: 5em 2em 0 2em;
+
+  h1 {
+  }
+
+  .submission-form {
+    background-color: white;
+    padding: 2em;
+  }
+}
+
+.transcripts {
+  color: white;
+  padding: 5em 2em 0 2em;
+
+  a {
+    color: white;
   }
 }
 

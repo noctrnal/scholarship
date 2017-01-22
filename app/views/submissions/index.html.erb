@@ -1,25 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="main">
+  <h1>Applicant Submissions</h1>
 
-<h1>Submissions</h1>
+  <div class="submissions">
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <p>Below is the list of applicant submissions that have been marked as complete by NAJA.</p>
 
-  <tbody>
-    <% @submissions.each do |submission| %>
-      <tr>
-        <td><%= link_to 'Show', submission %></td>
-        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
-        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <p>Please select each one to complete the committee grading.</p>
 
-<br>
+    <table>
+      <thead>
+        <tr>
+          <th>Applicant</th>
+          <th>Submission</th>
+          <th>Transcripts</th>
+          <th>Recommendations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @submissions.each do |submission| %>
+          <tr>
+            <td><%= name(submission) %></td>
+            <td><%= link_to 'Submission', submission %></td>
+            <td>
+              <table class="no-bottom-border">
+                <% submission.institutions.each do |institution| %>
+                  <td><%= link_to institution.name, institution.transcript.upload.url %></td>
+                <% end %>
+              </table>
+            </td>
+            <td>
+              <table class="no-bottom-border">
+                <% submission.recommendations.each do |recommendation| %>
+                  <td><%= link_to recommendation.name, recommendation %></td>
+                <% end %>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<%= link_to 'New Submission', new_submission_path %>

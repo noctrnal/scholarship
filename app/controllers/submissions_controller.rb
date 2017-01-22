@@ -5,12 +5,18 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = Submission.all
+    if !current_user.admin
+      redirect_to root_path
+    end
+    @submissions = Submission.where(:approval => true)
   end
 
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    if !current_user.admin
+      redirect_to root_path
+    end
   end
 
   # GET /submissions/new

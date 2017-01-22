@@ -1,0 +1,203 @@
+<%= form_for @submission do |form| %>
+  <% if submission.errors.any? %>
+    <div id="error_explanation">
+      <h2 class="error"><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% submission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="personal-information">
+      <p class="reapply">
+        <%= form.check_box :reapply %>
+        <%= form.label :reapply, 'This is a repplication.' %>
+      </p>
+      <h2>Personal information</h2>
+      <div>
+        <h3>Name</h3>
+        <%= form.text_field :first_name, :class => field_class(@submission, :first_name), placeholder: 'First name', :autofocus => true %>
+        <%= form.text_field :middle_name, :class => field_class(@submission, :middle_name), placeholder: 'Middle name' %>
+        <%= form.text_field :last_name, :class => field_class(@submission, :last_name), placeholder: 'Last name' %>
+        <%= form.label :citizen, 'I am a U.S. citizen.', :class => field_class(@submission, :citizen) %>
+        <%= form.check_box :citizen %>
+        <div class="not-required-on-reapply">
+          <p class="<%= field_class(@submission, :license) %>">Adobe PDF of your driver's license:</p>
+          <%= form.file_field :license %>
+          <% if @submission.license.present? %>
+            <%= link_to 'View license', @submission.license.url %>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <h3>Permanent address</h3>
+        <%= form.text_field :permanent_address, :class => field_class(@submission, :permanent_address), placeholder: 'Permanent address' %>
+        <%= form.text_field :permanent_city, :class => field_class(@submission, :permanent_city), placeholder: 'Permanent city' %>
+        <%= form.text_field :permanent_state, :class => field_class(@submission, :permanent_state), placeholder: 'Permanent state' %>
+        <%= form.text_field :permanent_zip, :class => field_class(@submission, :permanent_zip), placeholder: 'Permanent zip' %>
+        <%= form.phone_field :permanent_phone, :class => field_class(@submission, :permanent_phone), placeholder: 'Permanent phone number' %>
+      </div>
+      <div>
+        <h3>Current address <span>(if different)</span></h3>
+        <%= form.text_field :current_address, placeholder: 'Current address' %>
+        <%= form.text_field :current_city, placeholder: 'Current city' %>
+        <%= form.text_field :current_state, placeholder: 'Current state' %>
+        <%= form.text_field :current_zip, placeholder: 'Current zip' %>
+        <%= form.phone_field :current_phone, placeholder: 'Current phone number' %>
+      </div>
+    </div>
+    <div class="relative">
+      <h2>Nearest relative</h2>
+      <%= render :partial => 'relative', :locals => {:form => form} %>
+    </div>
+    <div class="not-required-on-reapply">
+      <div class="employments">
+        <h2>Employment history</h2>
+        <%= render :partial => 'employment', :locals => {:form => form} %>
+        <div>
+          <p class="<%= field_class(@submission, :resume)  %>">Adobe PDF of your resume:</p>
+          <%= form.file_field :resume %>
+          <% if @submission.resume.present? %>
+            <%= link_to 'View resume', @submission.resume.url %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="institutions">
+      <h2>Institutions attended</h2>
+      <%= render :partial => 'institutions', :locals => {:form => form} %>
+    </div>
+    <div class="not-required-on-reapply">
+      <div class="honors">
+        <h2>Honors, scholarships, or special recognitions</h2>
+        <p>At least 4 are required.</p>
+        <%= render :partial => 'honors', :locals => {:form => form} %>
+      </div>
+      <div class="volunteers">
+        <h2>Civic or cultural involvements and volunteerisms</h2>
+        <p>At least 4 are required.</p>
+        <%= render :partial => 'volunteers', :locals => {:form => form} %>
+      </div>
+    </div>
+    <div class="anticipated-institution-information clearfix">
+      <h2>Future education information</h2>
+      <div>
+        <h3>Institution</h3>
+        <%= form.text_field :institution_name, :class => field_class(@submission, :institution_name), placeholder: 'Institution name' %>
+        <%= form.text_field :institution_city, :class => field_class(@submission, :institution_city), placeholder: 'Institution city' %>
+        <%= form.text_field :institution_state, :class => field_class(@submission, :institution_state), placeholder: 'Institution state' %>
+      </div>
+      <div class="institution-information">
+        <h3>Enrollment</h3>
+        <div>
+          <%= form.label :accepted, 'I have been accepted into this graduate program.', :class => field_class(@submission, :acceptance) %>
+          <%= form.check_box :acceptance %>
+        </div>
+        <div>
+          <div>
+            <%= form.label :start_date, 'Date your studies will begin:', :class => field_class(@submission, :start_date) %>
+          </div>
+          <div class="right">
+            <%= form.month_field :start_date %>
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= form.label :last_year, 'I will earn my degree this year.', :class => field_class(@submission, :last_year) %>
+            <%= form.check_box :last_year %>
+          </div>
+        </div>
+        <div>
+          <%= form.text_field :last_year_explanation, placeholder: 'If not, explain.' %>
+        </div>
+      </div>
+      <div>
+        <h3>Program</h3>
+        <div>
+          <%= form.label :field_id, 'Proposed field of study:', :class => field_class(@submission, :field_id) %>
+          <%= form.select :field_id, options_for_select(
+            Field.all.map{|field| [field.name, field.id]},
+            @submission.field_id
+          ) %>
+        </div>
+        <div>
+          <%= form.text_field :field_explanation, placeholder: 'If other, explain.' %>
+        </div>
+        <div>
+          <%= form.label :degree_id, 'Degree you will work to obtain:', :class => field_class(@submission, :degree_id) %>
+          <%= form.select :degree_id, options_for_select(
+            Degree.all.map{|degree| [degree.name, degree.id]},
+            @submission.degree_id
+          ) %>
+        </div>
+        <div>
+          <%= form.text_field :degree_explanation, placeholder: 'If other, explain.' %>
+        </div>
+      </div>
+      <div class="cost-estimates">
+        <h3>Cost estimates (round to nearest whole dollar)</h3>
+        <div>
+          <div>
+            <%= form.number_field :summer_tuition, :class => field_class(@submission, :summer_tuition), placeholder: 'Summer tuition/fees' %>
+            <%= form.number_field :summer_books, :class => field_class(@submission, :summer_books), placeholder: 'Summer books' %>
+            <%= form.number_field :summer_board, :class => field_class(@submission, :summer_board), placeholder: 'Summer room/board' %>
+            <%= form.number_field :summer_other, :class => field_class(@submission, :summer_other), placeholder: 'Summer other' %>
+            <%= form.number_field :summer_hours, :class => field_class(@submission, :summer_hours), placeholder: 'Summer hours' %>
+          </div>
+          <div>
+            <%= form.number_field :fall_tuition, :class => field_class(@submission, :fall_tuition), placeholder: 'Fall tuition/fees' %>
+            <%= form.number_field :fall_books, :class => field_class(@submission, :fall_books), placeholder: 'Fall books' %>
+            <%= form.number_field :fall_board, :class => field_class(@submission, :fall_board), placeholder: 'Fall room/board' %>
+            <%= form.number_field :fall_other, :class => field_class(@submission, :fall_other), placeholder: 'Fall other' %>
+            <%= form.number_field :fall_hours, :class => field_class(@submission, :fall_hours), placeholder: 'Fall hours' %>
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= form.number_field :winter_tuition, :class => field_class(@submission, :winter_tuition), placeholder: 'Winter tuition/fees' %>
+            <%= form.number_field :winter_books, :class => field_class(@submission, :winter_books), placeholder: 'Winter books' %>
+            <%= form.number_field :winter_board, :class => field_class(@submission, :winter_board), placeholder: 'Winter room/board' %>
+            <%= form.number_field :winter_other, :class => field_class(@submission, :winter_other), placeholder: 'Winter other' %>
+            <%= form.number_field :winter_hours, :class => field_class(@submission, :winter_hours), placeholder: 'Winter hours' %>
+          </div>
+          <div>
+            <%= form.number_field :spring_tuition, :class => field_class(@submission, :spring_tuition), placeholder: 'Spring tuition/fees' %>
+            <%= form.number_field :spring_books, :class => field_class(@submission, :spring_books), placeholder: 'Spring books' %>
+            <%= form.number_field :spring_board, :class => field_class(@submission, :spring_board), placeholder: 'Spring room/board' %>
+            <%= form.number_field :spring_other, :class => field_class(@submission, :spring_other), placeholder: 'Spring other' %>
+            <%= form.number_field :spring_hours, :class => field_class(@submission, :spring_hours), placeholder: 'Spring hours' %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <%= form.label :frequency, 'Is this request for semester or quarter terms?' %>
+        <%= form.select :frequency, options_for_select(
+          [
+            ['Semesterly terms', 'semester'],
+            ['Quarterly terms', 'quarter']
+          ],
+          @submission.frequency
+        ) %>
+      </div>
+      <div>
+        <p class="<%= field_class(@submission, :expense) %>">Adobe PDF of the institution's expense page(s) from the current school catalog:</p>
+        <%= form.file_field :expense %>
+        <% if @submission.expense.present? %>
+          <%= link_to 'View expense page(s)', @submission.expense.url %>
+        <% end %>
+      </div>
+    </div>
+    <div class="not-required-on-reapply">
+      <div class="motivation">
+        <h2>Motivation, commitment, and goals</h2>
+        <div>
+          <%= form.text_field :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

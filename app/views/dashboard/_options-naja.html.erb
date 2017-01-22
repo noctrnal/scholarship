@@ -1,22 +1,21 @@
 <h1>So, what options do I have?</h1>
-<p>Remember "with great power comes great responsibility".</p>
 <ul class="dashboard" id="welcome">
   <li>
-    <%= link_to  do %>
-      <span class="orange">You can manage users.</span>
-      <p>You can manage users of the site and their information. This includes selected committee members and promoting other admins!<p>
+    <%= link_to submissions_path do %>
+      <span class="orange">View applicant submissions.</span>
+      <p>You can view applicant submissions along with each of the attachmens.<p>
     <% end %>
   </li>
   <li>
     <%= link_to  do %>
-      <span class="red">You can manage applications.</span>
-      <p>You can manage applications, upload transcripts, upload recommendations, and approve applications.</p>
+      <span class="red">Grade applicant submissions.</span>
+      <p>You can grade each applicant based on committee grading standards.</p>
     <% end %>
   </li>
   <li>
     <%= link_to  do %>
-      <span class="green">You can view applicants' scores.</span>
-      <p>You can view the applicants' scores in real time as committee members make submissions.</p>
+      <span class="green">View applicant scores.</span>
+      <p>You can view the scores of the applicants.</p>
     <% end %>
   </li>
   <li>

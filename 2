@@ -5,6 +5,9 @@ class TranscriptsController < ApplicationController
   # GET /transcripts
   # GET /transcripts.json
   def index
+    @submission = Submission.find(params[:submission])
+    @institutions = @submission.institutions
+    @transcripts = Transcript.all.where(institution: [@institutions])
   end
 
   # GET /transcripts/1

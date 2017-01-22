@@ -11,6 +11,9 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/1
   # GET /recommendations/1.json
   def show
+    if !current_user.admin
+      redirect_to root_path
+    end
   end
 
   # GET /recommendations/new

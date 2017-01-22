@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="main">
+  <h1>Show Applicant Submission</h1>
 
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %>
+  <div class="submissions">
+    <p id="notice"><%= notice %></p>
+
+    <p>Please note that any changes made to this form will not be saved.</p>
+
+    <div class="submission-form">
+      <%= render 'form-disabled', submission: @submission %>
+    </div>
+  </div>
+</div>
+
