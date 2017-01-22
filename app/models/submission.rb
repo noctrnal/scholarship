@@ -6,6 +6,7 @@ class Submission < ApplicationRecord
   has_attached_file :resume
 
   has_many :employments
+  has_many :evaluations
   has_many :honors
   has_many :institutions
   has_many :recommendations

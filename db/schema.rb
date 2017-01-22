@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012023424) do
+ActiveRecord::Schema.define(version: 20170122223231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20161012023424) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["submission_id"], name: "index_employments_on_submission_id", using: :btree
+  end
+
+  create_table "evalutions", force: :cascade do |t|
+    t.integer  "submission_id"
+    t.integer  "commitment"
+    t.integer  "scholarship"
+    t.integer  "recommendations"
+    t.integer  "goals"
+    t.string   "remarks"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["submission_id"], name: "index_evalutions_on_submission_id", using: :btree
+    t.index ["user_id"], name: "index_evalutions_on_user_id", using: :btree
   end
 
   create_table "fields", force: :cascade do |t|
@@ -222,6 +236,8 @@ ActiveRecord::Schema.define(version: 20161012023424) do
   end
 
   add_foreign_key "employments", "submissions"
+  add_foreign_key "evalutions", "submissions"
+  add_foreign_key "evalutions", "users"
   add_foreign_key "honors", "submissions"
   add_foreign_key "institutions", "submissions"
   add_foreign_key "recommendations", "submissions"

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  submission: one
+  commitment: 1
+  scholarship: 1
+  recommendations: 1
+  goals: 1
+  remarks: MyString
+  user: one
+
+two:
+  submission: two
+  commitment: 1
+  scholarship: 1
+  recommendations: 1
+  goals: 1
+  remarks: MyString
+  user: two
