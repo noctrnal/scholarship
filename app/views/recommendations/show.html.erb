@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="main">
+  <h1>Show Applicant Recommendation</h1>
 
-<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
-<%= link_to 'Back', recommendations_path %>
+  <div class="recommendations">
+    <p id="notice"><%= notice %></p>
+
+    <p>Please note that any changes made to this form will not be saved.</p>
+
+    <div class="recommendations-form">
+      <%= render 'edit-disabled', recommendation: @recommendation %>
+    </div>
+  </div>
+</div>
+

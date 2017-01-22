@@ -62,7 +62,7 @@ class Submission < ApplicationRecord
   validates :expense, attachment_presence: true
 
   def field
-    Field.find(degree_id)
+    Field.find(field_id)
   end
 
   def name

@@ -14,6 +14,7 @@ class RecommendationsController < ApplicationController
     if !current_user.admin
       redirect_to root_path
     end
+    @submission = @recommendation.submission
   end
 
   # GET /recommendations/new
@@ -30,7 +31,6 @@ class RecommendationsController < ApplicationController
     unless params[:token] == @recommendation.token
       redirect_to root_path
     end
-
     @submission = @recommendation.submission
   end
 
