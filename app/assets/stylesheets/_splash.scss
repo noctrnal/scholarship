@@ -1,3 +1,5 @@
+@import "media-sizes";
+
 $pantone-blue: #001489;
 
 .splash-header {
@@ -28,6 +30,7 @@ $pantone-blue: #001489;
       }
     }
   }
+
   .splash-header-primary {
     background-color: #1564d0;
     background-image: url("/logo-right.png");
@@ -52,6 +55,13 @@ $pantone-blue: #001489;
       }
     }
   }
+  @media (min-width : $media-desktop) {
+    .splash-header-primary, .splash-header-secondary {
+      div {
+        padding-top: 5%!important;
+      }
+    }
+  }
 }
 
 .splash-content {
@@ -66,7 +76,7 @@ $pantone-blue: #001489;
     float: left;
     min-height: inherit;
     overflow: hidden;
-    padding: 5% 0;
+    padding: 10em 10em 10em 10em;
     width: 35%;
 
     div {
@@ -81,18 +91,18 @@ $pantone-blue: #001489;
       }
     }
   }
+
   .splash-content-primary {
     background-color: white;
     float: right;
     min-height: inherit;
     overflow: hidden;
-    padding: 5% 0;
+    padding: 10em 10em 0 10em;
     width: 65%;
 
     div {
       display: table-cell;
       vertical-align: middle;
-      padding: 0 10em 0 10em;
 
       h1 {
         color: $pantone-blue;
@@ -113,6 +123,16 @@ $pantone-blue: #001489;
         width: 50%;
       }
     }
+  }
+  @media (max-width: $media-desktop) {
+    .splash-content-primary {
+      padding: 5em!important;
+    }
+  }
+}
+@media (max-width: $media-desktop) {
+  .splash-content {
+    min-height: 35em!important;
   }
 }
 
