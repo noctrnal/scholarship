@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170122223231) do
     t.index ["submission_id"], name: "index_employments_on_submission_id", using: :btree
   end
 
-  create_table "evalutions", force: :cascade do |t|
+  create_table "evaluations", force: :cascade do |t|
     t.integer  "submission_id"
     t.integer  "commitment"
     t.integer  "scholarship"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170122223231) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["submission_id"], name: "index_evalutions_on_submission_id", using: :btree
-    t.index ["user_id"], name: "index_evalutions_on_user_id", using: :btree
+    t.index ["submission_id"], name: "index_evaluations_on_submission_id", using: :btree
+    t.index ["user_id"], name: "index_evaluations_on_user_id", using: :btree
   end
 
   create_table "fields", force: :cascade do |t|
@@ -236,8 +236,8 @@ ActiveRecord::Schema.define(version: 20170122223231) do
   end
 
   add_foreign_key "employments", "submissions"
-  add_foreign_key "evalutions", "submissions"
-  add_foreign_key "evalutions", "users"
+  add_foreign_key "evaluations", "submissions"
+  add_foreign_key "evaluations", "users"
   add_foreign_key "honors", "submissions"
   add_foreign_key "institutions", "submissions"
   add_foreign_key "recommendations", "submissions"

@@ -1,0 +1,60 @@
+<%= form_for @evaluation do |form| %>
+  <% if evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recommendation.errors.count, "error") %> prohibited this recommendation from being saved:</h2>
+
+      <ul>
+        <% evaluation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <p><span>Applicant</span>: <%= @submission.name %></p>
+    <table class="no-bottom-border">
+      <thead>
+        <tr>
+          <th>Commitment</th>
+          <th>Scholarship</th>
+          <th>Recommendations</th>
+          <th>Goals</th>
+          <th>Remarks</th>
+      </thead>
+      <tr>
+        <td>
+          <%= form.select(
+            :commitment,
+            options_for_select(@options, @evaluation.commitment),
+          ) %>
+        </td>
+        <td>
+          <%= form.select(
+            :scholarship,
+            options_for_select(@options, @evaluation.scholarship),
+          ) %>
+        </td>
+        <td>
+          <%= form.select(
+            :recommendations,
+            options_for_select(@options, @evaluation.recommendations),
+          ) %>
+        </td>
+        <td>
+          <%= form.select(
+            :goals,
+            options_for_select(@options, @evaluation.goals),
+          ) %>
+        </td>
+        <td><%= form.text_area :remarks %></td>
+      </tr>
+    </table>
+    <%= form.hidden_field(
+      :submission_id,
+      :value => @submission.id
+    ) %>
+    <input type="submit" name="commit" value="Submit evaluation" data-disable-with="Submit evaluation">
+  </div>
+<% end %>
+

@@ -1,6 +1,6 @@
-class CreateEvalutions < ActiveRecord::Migration[5.0]
+class CreateEvaluations < ActiveRecord::Migration[5.0]
   def change
-    create_table :evalutions do |t|
+    create_table :evaluations do |t|
       t.references :submission, foreign_key: true
       t.integer :commitment
       t.integer :scholarship

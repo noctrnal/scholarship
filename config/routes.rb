@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  resources :evaluations, only: [:new, :edit, :create, :update]
   resources :institutions, only: []
   resources :transcripts, only: [:new, :edit, :create, :update]
   resources :recommendations, only: [:show, :new, :edit, :create, :update]

@@ -1,0 +1,81 @@
+<div class="main">
+  <h1>Edit Applicant Evaluation</h1>
+
+  <div class="evaluations">
+    <%= render 'edit', evaluation: @evaluation %>
+  </div>
+
+  <div class="scoring-container">
+    <div class="scoring">
+      <strong>Commitment to children</strong>
+      <p>Things to consider:</p>
+      <ul>
+        <li>Experience/job or volunteer work?</li>
+        <li>Essay?</li>
+        <li>Recommendation letters?</li>
+        <li>Plans for future employment?</li>
+        <li>Are they "professional students"?</li>
+      </ul>
+      <p>Grading scale:</p>
+      <ul>
+        <li>Candidate has related volunteer work experience - 1</li>
+        <li>Candidate has related work experience - 1</li>
+        <li>Candidate has plans for the future - 1</li>
+        <li>Candidate has a compelling essay - 1</li>
+        <li>Candidate has related work experience and voluntter experience within the last year - 1</li>
+      </ul>
+    </div>
+
+    <div class="scoring">
+      <strong>Scholarship records</strong>
+      <p>Take into consideration undergraduate and graduate GPA, course load, and your own common sense. Then use the following as your guidelines for scoring:
+      <ul>
+        <li>5 point = 4.00 to 3.98 GPA</li>
+        <li>4 point = 3.97 to 3.50</li>
+        <li>3 point = 3.49 to 3.00</li>
+        <li>2 point = 2.99 to 2.50</li>
+        <li>1 point = 2.49 and below</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scoring-container">
+    <div class="scoring">
+      <strong>Recommendations</strong>
+      <p>Things to consider:</p>
+      <ul>
+        <li>How long has he/she known the applicant?</li>
+        <li>In what capacity has he/she known the application?</li>
+        <li>Are the letters personalized?</li>
+      </ul>
+      <p>Grading scale:</p>
+      <ul>
+        <li>Writer has known the applicant for more than 1 year - 0.5</li>
+        <li>Writer knows the applicant well/personnally - 1</li>
+        <li>Writer knows the applicant in a professional setting - 1</li>
+        <li>Writer has worked with children - 1.5</li>
+        <li>Writer submitted a personalized letter - 1</li>
+      </ul>
+    </div>
+
+    <div class="scoring">
+      <strong>Motivation/goals</strong>
+      <p>Things to consider:</p>
+      <ul>
+        <li>Are they motivated by commitment or money?</li>
+        <li>Are they enthusiastic about the field they have chosen?</li>
+        <li>Does their work experience and volunteerism reflect their desire to work with children?</li>
+        <li>How honest and sincere is the applicant?</li>
+      </ul>
+      <p>Grading scale:</p>
+      <ul>
+        <li>Candidate is committed to children/not motivated by money - 1</li>
+        <li>Candidate is enthusiastic about their chosen field - 1</li>
+        <li>Candidate has worked with children - 1</li>
+        <li>Candidate has volunteered with children - 1</li>
+        <li>Candidate comes across as honest and sincere - 1</li>
+      </ul>
+    </div>
+  </div>
+</div>
+

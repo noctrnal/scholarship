@@ -1,4 +1,4 @@
-class Evalution < ApplicationRecord
+class Evaluation < ApplicationRecord
   belongs_to :submission
   belongs_to :user
 

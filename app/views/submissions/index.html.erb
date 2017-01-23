@@ -20,7 +20,7 @@
       <tbody>
         <% @submissions.each do |submission| %>
           <tr>
-            <td><%= name(submission) %></td>
+            <td><%= link_to name(submission), new_evaluation_path(:submission => submission) %></td>
             <td><%= link_to 'Submission', submission %></td>
             <td>
               <table class="no-bottom-border">

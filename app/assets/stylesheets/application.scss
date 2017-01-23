@@ -18,6 +18,7 @@
 @import "base/base";
 
 @import "dashboard";
+@import "evaluations";
 @import "navigation";
 @import "footer";
 @import "splash";
@@ -63,4 +64,12 @@ p {
 .blue { color: $pantone-blue; }
 .green { color: green; }
 .white { color: white; }
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 
