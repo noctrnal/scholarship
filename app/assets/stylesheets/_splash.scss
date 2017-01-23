@@ -15,7 +15,7 @@ $pantone-blue: #001489;
     float: left;
     height: inherit;
     overflow: hidden;
-    padding: 5% 0;
+    padding: 10em 10em 0 10em;
     width: 35%;
 
     div {
@@ -26,7 +26,6 @@ $pantone-blue: #001489;
 
       p {
         font-size: 2em;
-        padding: 10% 0;
       }
     }
   }
@@ -39,14 +38,13 @@ $pantone-blue: #001489;
     float: right;
     height: inherit;
     overflow: hidden;
-    padding: 5% 0;
+    padding: 10em 10em 0 10em;
     width: 65%;
 
     div {
       color: white;
       display: table-cell;
       vertical-align: middle;
-      padding: 10% 10em 0 10em;
 
       button {
         background-color: white;
@@ -57,9 +55,6 @@ $pantone-blue: #001489;
   }
   @media (min-width : $media-desktop) {
     .splash-header-primary, .splash-header-secondary {
-      div {
-        padding-top: 5%!important;
-      }
     }
   }
 }
@@ -76,7 +71,7 @@ $pantone-blue: #001489;
     float: left;
     min-height: inherit;
     overflow: hidden;
-    padding: 10em 10em 10em 10em;
+    padding: 10em 10em 0 10em;
     width: 35%;
 
     div {
@@ -126,13 +121,8 @@ $pantone-blue: #001489;
   }
   @media (max-width: $media-desktop) {
     .splash-content-primary {
-      padding: 5em!important;
+      padding-top: 5em;
     }
-  }
-}
-@media (max-width: $media-desktop) {
-  .splash-content {
-    min-height: 35em!important;
   }
 }
 
