@@ -14,10 +14,6 @@ Rails.application.routes.draw do
 
   get "/pages/*page" => "pages#show"
 
-  app.get('/.well-known/acme-challenge/:content', function(req, res) {
-    res.send('WbJUWqYkrVeYIR9HUeUHP2b0C46pximw3MNr0AVp51E.TDWdzdb-lLmz_T17TuTkg5drG3vusMAWxTRrKt0kkHA')
-  })
-
   root "pages#show", page: "index"
 end
 
