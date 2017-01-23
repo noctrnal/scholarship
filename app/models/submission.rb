@@ -69,5 +69,40 @@ class Submission < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def overall
+    commitment_average + scholarship_average + recommendations_average + goals_average
+  end
+
+  def score(user)
+    evaluation = Evaluation.find_by(:submission => id, :user => user)
+    evaluation.score
+  end
+
+  private
+
+  def commitment_average
+    sum = Evaluation.select('sum(commitment) as sum, count(*) as count')
+      .where(:submission_id => id)
+    sum[0]['sum'] / sum[0]['count'].to_i
+  end
+
+  def goals_average
+    sum = Evaluation.select('sum(goals) as sum, count(*) as count')
+      .where(:submission_id => id)
+    sum[0]['sum'] / sum[0]['count'].to_i
+  end
+
+  def recommendations_average
+    sum = Evaluation.select('sum(recommendations) as sum, count(*) as count')
+      .where(:submission_id => id)
+    sum[0]['sum'] / sum[0]['count'].to_i
+  end
+
+  def scholarship_average
+    sum = Evaluation.select('sum(scholarship) as sum, count(*) as count')
+      .where(:submission_id => id)
+    sum[0]['sum'] / sum[0]['count'].to_i
+  end
 end
 

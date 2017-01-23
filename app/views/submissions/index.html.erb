@@ -15,6 +15,8 @@
           <th>Submission</th>
           <th>Transcripts</th>
           <th>Recommendations</th>
+          <th>Score</th>
+          <th>Overall</th>
         </tr>
       </thead>
       <tbody>
@@ -25,17 +27,19 @@
             <td>
               <table class="no-bottom-border">
                 <% submission.institutions.each do |institution| %>
-                  <td><%= link_to institution.name, institution.transcript.upload.url %></td>
+                  <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
                 <% end %>
               </table>
             </td>
             <td>
               <table class="no-bottom-border">
                 <% submission.recommendations.each do |recommendation| %>
-                  <td><%= link_to recommendation.name, recommendation %></td>
+                  <tr><td><%= link_to recommendation.name, recommendation %></td></tr>
                 <% end %>
               </table>
             </td>
+            <td><%= submission.score(current_user) %> / 20</td>
+            <td><%= submission.overall %> / 20</td>
           </tr>
         <% end %>
       </tbody>
