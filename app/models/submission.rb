@@ -85,25 +85,25 @@ class Submission < ApplicationRecord
   def commitment_average
     sum = Evaluation.select('sum(commitment) as sum, count(*) as count')
       .where(:submission_id => id)
-    sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_i : 0
+    sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_f : 0
   end
 
   def goals_average
     sum = Evaluation.select('sum(goals) as sum, count(*) as count')
       .where(:submission_id => id)
-    sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_i : 0
+    sum[0]['sum'] ? sum[0]['sum'] / sum[0]['count'].to_f : 0
   end
 
   def recommendations_average
     sum = Evaluation.select('sum(recommendations) as sum, count(*) as count')
       .where(:submission_id => id)
-    sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_i : 0
+    sum[0]['sum'] ? sum[0]['sum'] / sum[0]['count'].to_f : 0
   end
 
   def scholarship_average
     sum = Evaluation.select('sum(scholarship) as sum, count(*) as count')
       .where(:submission_id => id)
-    sum.exists? ?  sum[0]['sum'] / sum[0]['count'].to_i : 0
+    sum[0]['sum'] ?  sum[0]['sum'] / sum[0]['count'].to_f : 0
   end
 end
 
