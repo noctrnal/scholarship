@@ -27,7 +27,9 @@
             <td>
               <table class="no-bottom-border">
                 <% submission.institutions.each do |institution| %>
-                  <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
+                  <% if institution.upload %>
+                    <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
+                  <% end %>
                 <% end %>
               </table>
             </td>
