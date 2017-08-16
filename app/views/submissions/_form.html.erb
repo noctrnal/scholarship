@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="institutions">
-      <h2>Institutions attended</h2>
+      <h2>Schools attended/currently attending (please note all schools attended must be listed)</h2>
       <%= render :partial => 'institutions', :locals => {:form => form} %>
     </div>
     <div class="not-required-on-reapply">
@@ -191,12 +191,10 @@
         <% end %>
       </div>
     </div>
-    <div class="not-required-on-reapply">
-      <div class="motivation">
-        <h2>Motivation, commitment, and goals</h2>
-        <div>
-          <%= form.text_area :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
-        </div>
+    <div class="motivation">
+      <h2>Motivation, commitment, and goals</h2>
+      <div>
+        <%= form.text_area :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
       </div>
     </div>
     <%= form.submit 'Submit Scholarship Application' %>
