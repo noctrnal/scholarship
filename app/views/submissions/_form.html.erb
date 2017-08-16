@@ -23,6 +23,7 @@
         <%= form.text_field :first_name, :class => field_class(@submission, :first_name), placeholder: 'First name', :autofocus => true %>
         <%= form.text_field :middle_name, :class => field_class(@submission, :middle_name), placeholder: 'Middle name' %>
         <%= form.text_field :last_name, :class => field_class(@submission, :last_name), placeholder: 'Last name' %>
+        <%= form.text_field :maiden_name, :class => field_class(@submission, :maiden_name), placeholder: 'Maiden name if different from your last name' %>
         <%= form.label :citizen, 'I am a U.S. citizen.', :class => field_class(@submission, :citizen) %>
         <%= form.check_box :citizen %>
         <div class="not-required-on-reapply">
