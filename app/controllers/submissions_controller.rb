@@ -118,6 +118,7 @@ class SubmissionsController < ApplicationController
         :last_year,
         :last_year_explanation,
         :license,
+        :maiden_name,
         :middle_name,
         :motivation,
         :permanent_address,
