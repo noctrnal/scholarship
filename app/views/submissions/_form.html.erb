@@ -103,7 +103,7 @@
             <%= form.label :start_date, 'Date your studies will begin:', :class => field_class(@submission, :start_date) %>
           </div>
           <div class="right">
-            <%= form.month_field :start_date %>
+            <%= form.month_field :start_date, :required => true %>
           </div>
         </div>
         <div>
