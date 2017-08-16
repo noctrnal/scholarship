@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
     if !current_user.admin
       redirect_to root_path
     end
-    @submissions = Submission.where(:approval => true)
+    @submissions = Submission.where(:approval => true).order(:last_name)
   end
 
   # GET /submissions/1
