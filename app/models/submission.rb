@@ -23,6 +23,7 @@ class Submission < ApplicationRecord
   validates_attachment :license, content_type: { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
   validates_attachment :resume, content_type: { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
 
+  validates :year, :presence => true
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :permanent_address, :presence => true

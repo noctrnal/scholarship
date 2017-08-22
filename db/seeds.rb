@@ -63,6 +63,12 @@ end
 end
 
 [
+  '2017',
+].each do |current_year|
+  Setting.create(:current_year => current_year)
+end
+
+[
   'Alabama',
   'Arkansas',
   'Florida',

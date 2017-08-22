@@ -4,7 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :submission
+  has_many :submissions
   has_many :evaluations
+
+  def submission
+    Submission.find_by(:user => self, :year => Setting.year)
+  end
 end
 

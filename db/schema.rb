@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822022530) do
+ActiveRecord::Schema.define(version: 20170822041137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,12 @@ ActiveRecord::Schema.define(version: 20170822022530) do
     t.index ["submission_id"], name: "index_relatives_on_submission_id", using: :btree
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.integer  "current_year"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -131,8 +137,8 @@ ActiveRecord::Schema.define(version: 20170822022530) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -197,6 +203,7 @@ ActiveRecord::Schema.define(version: 20170822022530) do
     t.boolean  "reapply"
     t.string   "maiden_name"
     t.integer  "state_id"
+    t.integer  "year",                  default: 2017
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
     t.index ["state_id"], name: "index_submissions_on_state_id", using: :btree

@@ -8,6 +8,7 @@ class SubmissionsController < ApplicationController
     if !current_user.admin
       redirect_to root_path
     end
+    # TODO: update following line for current year
     @submissions = Submission.where(:approval => true).order(:last_name)
   end
 
@@ -25,7 +26,7 @@ class SubmissionsController < ApplicationController
       redirect_to action: "edit", id: current_user.submission.id
     end
 
-    @submission = Submission.new
+    @submission = Submission.new(:year => Setting.year)
     @submission.relatives.build
     4.times do
       @submission.honors.build
@@ -145,6 +146,7 @@ class SubmissionsController < ApplicationController
         :winter_hours,
         :winter_other,
         :winter_tuition,
+        :year,
         employments_attributes:[
           :employer,
           :title,
