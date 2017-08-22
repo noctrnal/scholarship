@@ -134,6 +134,7 @@ class SubmissionsController < ApplicationController
         :spring_other,
         :spring_tuition,
         :start_date,
+        :state_id,
         :summer_board,
         :summer_books,
         :summer_hours,

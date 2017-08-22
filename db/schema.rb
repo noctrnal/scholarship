@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822021149) do
+ActiveRecord::Schema.define(version: 20170822022530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,8 +196,10 @@ ActiveRecord::Schema.define(version: 20170822021149) do
     t.boolean  "approval"
     t.boolean  "reapply"
     t.string   "maiden_name"
+    t.integer  "state_id"
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
+    t.index ["state_id"], name: "index_submissions_on_state_id", using: :btree
     t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
   end
 
@@ -251,6 +253,7 @@ ActiveRecord::Schema.define(version: 20170822021149) do
   add_foreign_key "relatives", "submissions"
   add_foreign_key "submissions", "degrees"
   add_foreign_key "submissions", "fields"
+  add_foreign_key "submissions", "states"
   add_foreign_key "submissions", "users"
   add_foreign_key "transcripts", "institutions"
   add_foreign_key "users", "submissions"

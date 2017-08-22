@@ -27,6 +27,11 @@
         <%= form.label :citizen, 'I am a U.S. citizen.', :class => field_class(@submission, :citizen) %>
         <%= form.check_box :citizen %>
         <div class="not-required-on-reapply">
+          <%= form.label :state_id, 'State of residence:', :class => field_class(@submission, :state_id) %>
+          <%= form.select :state_id, options_for_select(
+            State.all.map{|state| [state.name, state.id]},
+            @submission.state_id
+          ) %>
           <p class="<%= field_class(@submission, :license) %>">Adobe PDF of your driver's license:</p>
           <%= form.file_field :license %>
           <% if @submission.license.present? %>
