@@ -8,8 +8,10 @@ class SubmissionsController < ApplicationController
     if !current_user.admin
       redirect_to root_path
     end
-    # TODO: update following line for current year
-    @submissions = Submission.where(:approval => true).order(:last_name)
+    @submissions = Submission.where(
+      :approval => true,
+      :year => Setting.year,
+    ).order(:last_name)
   end
 
   # GET /submissions/1
