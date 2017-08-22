@@ -7,6 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 [
+  'Masters',
+  'Doctorate',
+  'Other',
+].each do |degree|
+  Degree.create(:name => degree)
+end
+
+[
   'Art Therapy',
   'Audiology',
   'Clinical Psychology',
@@ -33,11 +41,15 @@
 end
 
 [
-  'Masters',
-  'Doctorate',
-  'Other',
-].each do |degree|
-  Degree.create(:name => degree)
+  'Outstanding',
+  'Very good',
+  'Good',
+  'Average',
+  'Below average',
+  'Poor',
+  'No basis to evaluate',
+].each do |impression|
+  Impression.create(:name => impression)
 end
 
 [
@@ -51,14 +63,14 @@ end
 end
 
 [
-  'Outstanding',
-  'Very good',
-  'Good',
-  'Average',
-  'Below average',
-  'Poor',
-  'No basis to evaluate',
-].each do |impression|
-  Impression.create(:name => impression)
+  'Alabama',
+  'Arkansas',
+  'Florida',
+  'Louisiana',
+  'Mississippi',
+  'Missouri',
+  'Tennessee',
+].each do |state|
+  State.create(:name => state)
 end
 
