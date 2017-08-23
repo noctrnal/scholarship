@@ -203,8 +203,9 @@
     </div>
     <div class="motivation">
       <h2>Motivation, commitment, and goals</h2>
+      <p>The box below can be expanded by clicking and dragging the bottom, right-hand corner of the box.</p>
       <div>
-        <%= form.text_area :motivation, :class => field_class(@submission, :motivation), placeholder: 'Provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
+        <%= form.text_area :motivation, :class => field_class(@submission, :motivation), placeholder: 'In 350 words or less, provide reasons for choosing this profession, motivation to pursue this degree, commitment to work with children and future goals.' %>
       </div>
     </div>
     <%= form.submit 'Submit Scholarship Application' %>
