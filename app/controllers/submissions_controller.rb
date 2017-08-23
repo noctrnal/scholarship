@@ -28,7 +28,7 @@ class SubmissionsController < ApplicationController
       redirect_to action: "edit", id: current_user.submission.id
     end
 
-    @submission = Submission.new(:year => Setting.year)
+    @submission = Submission.new
     @submission.relatives.build
     4.times do
       @submission.honors.build
