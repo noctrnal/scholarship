@@ -48,6 +48,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.create
     @submission.attributes = submission_params
     @submission.user_id = current_user.id if current_user
+    @submission.year = Setting.year
 
     respond_to do |format|
       if @submission.save
