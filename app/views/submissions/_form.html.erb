@@ -75,8 +75,9 @@
       </div>
     </div>
     <div class="institutions">
-      <h2>Schools attended/currently attending (please note all schools attended must be listed)</h2>
-      <%= render :partial => 'institutions', :locals => {:form => form} %>
+      <h2>Colleges and universities</h2>
+      <p>Please list all colleges and/or universities that you have attended.</h2>
+      <%= render :partial => 'college or university', :locals => {:form => form} %>
     </div>
     <div class="not-required-on-reapply">
       <div class="honors">
@@ -93,7 +94,8 @@
     <div class="anticipated-institution-information clearfix">
       <h2>Future education information</h2>
       <div>
-        <h3>Institution</h3>
+        <h3>College or university</h3>
+        <p>Name and location of the college or university to which you have applied.</p>
         <%= form.text_field :institution_name, :class => field_class(@submission, :institution_name), placeholder: 'Institution name' %>
         <%= form.text_field :institution_city, :class => field_class(@submission, :institution_city), placeholder: 'Institution city' %>
         <%= form.text_field :institution_state, :class => field_class(@submission, :institution_state), placeholder: 'Institution state' %>
@@ -146,7 +148,8 @@
         </div>
       </div>
       <div class="cost-estimates">
-        <h3>Cost estimates (round to nearest whole dollar)</h3>
+        <h3>Cost estimates</h3>
+        <p>Please round to nearest whole dollar.</p>
         <div>
           <div>
             <%= form.number_field :summer_tuition, :class => field_class(@submission, :summer_tuition), placeholder: 'Summer tuition/fees' %>
