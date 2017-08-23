@@ -1,5 +1,5 @@
 <div>
-  <%= form.add_nested_fields_link :institutions, 'Add institution' %>
+  <%= form.add_nested_fields_link :institutions, 'Add college or university' %>
   <%= form.nested_fields_for :institutions do |institution| %>
     <div>
       <%= institution.text_field :name, placeholder: 'Name' %>
