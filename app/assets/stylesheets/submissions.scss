@@ -75,6 +75,7 @@ label, select {
       width: 100%;
 
       > div:nth-of-type(even) {
+        padding-bottom: 2em;
         width: 50%;
       }
     }

@@ -5,8 +5,7 @@ class DashboardController < ApplicationController
   end
 
   def status
-    if current_user.submission
-      @submission = Submission.find_by_user_id(current_user.id)
+    if @submission = current_user.submission
       @radius = 90.0
       @percentage = 0
 

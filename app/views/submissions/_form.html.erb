@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
+  <p>Only when all required fields have been entered can the application can be submitted (and therefore saved).  Once submitted, the application can be edited.</p>
+
   <div class="actions">
     <div class="personal-information">
       <p class="reapply">
         <%= form.check_box :reapply %>
-        <%= form.label :reapply, 'This is a repplication.' %>
+        <%= form.label :reapply, 'This is a reapplication.' %>
       </p>
       <h2>Personal information</h2>
       <div>
@@ -187,8 +189,8 @@
         <%= form.label :frequency, 'Is this request for semester or quarter terms?' %>
         <%= form.select :frequency, options_for_select(
           [
-            ['Semesterly terms', 'semester'],
-            ['Quarterly terms', 'quarter']
+            ['Semester terms', 'semester'],
+            ['Quarter terms', 'quarter']
           ],
           @submission.frequency
         ) %>

@@ -6,7 +6,9 @@
   <body>
     <h1>Scholarship recommendation request</h1>
     <p>
-    <%= @name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Click <%= link_to('here', edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token)) %> to submit the recommendation form.
+    <%= @name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Applicant must be pursuing graduate level studies for one year in fields which address the special needs of children and be working or planning to work directly with children. The primary purpose of the scholarship grant is to present a gift to the children.</p>
+    <p>
+    Click <%= link_to('here', edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token)) %> to submit the recommendation form.
     </p>
     <p>Thank you for your time,</p>
     <p>National Association of Junior Auxiliaries, Inc.</p>

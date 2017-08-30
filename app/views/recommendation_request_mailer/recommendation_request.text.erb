@@ -1,6 +1,8 @@
 Scholarship recommendation request
 
-<%= @submission.first_name %> <%= @submission.last_name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Please visit: <%= edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token) %> to submit the recommendation form.
+<%= @name %> is applying for a NAJA scholarship and is requesting that you give a recommendation. Applicant must be pursuing graduate level studies for one year in fields which address the special needs of children and be working or planning to work directly with children. The primary purpose of the scholarship grant is to present a gift to the children.
+
+Please visit: <%= edit_recommendation_url(:id => @recommendation.id, :token => @recommendation.token) %> to submit the recommendation form.
 
 Thank you for your time,
 National Association of Junior Auxiliaries, Inc.
