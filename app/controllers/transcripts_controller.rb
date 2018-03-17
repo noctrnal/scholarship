@@ -1,5 +1,6 @@
 class TranscriptsController < ApplicationController
   before_action :authenticate_user!, except: [:edit, :update]
+  before_action :is_active?
   before_action :set_transcript, only: [:show, :edit, :update, :destroy]
 
   # GET /transcripts
@@ -77,6 +78,12 @@ class TranscriptsController < ApplicationController
   end
 
   private
+    def is_active?
+      if !Setting.first.active
+        redirect_to dashboard_home_path, :notice => "Sorry, applications are currently closed. Applications are open between September and February."
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_transcript
       @transcript = Transcript.find(params[:id])

@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_active?
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
 
   # GET /submissions
@@ -88,6 +89,12 @@ class SubmissionsController < ApplicationController
   end
 
   private
+    def is_active?
+      if !Setting.first.active
+        redirect_to dashboard_home_path, :notice => "Sorry, applications are currently closed. Applications are open between September and February."
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
       @submission = Submission.find(params[:id])

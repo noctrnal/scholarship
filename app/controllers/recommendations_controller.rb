@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   before_action :authenticate_user!, except: [:edit, :update]
+  before_action :is_active?
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
 
   # GET /recommendations
@@ -81,6 +82,12 @@ class RecommendationsController < ApplicationController
   end
 
   private
+    def is_active?
+      if !Setting.first.active
+        redirect_to dashboard_home_path, :notice => "Sorry, applications are currently closed. Applications are open between September and February."
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_recommendation
       @recommendation = Recommendation.find(params[:id])
