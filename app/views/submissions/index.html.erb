@@ -56,10 +56,8 @@
                 <% end %>
                 <% if s %>
                   <tr><td>Previous recommendation(s):</td></tr>
-                  <% s.recommendations.each do |institution| %>
-                    <% if institution.transcript %>
-                      <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
-                    <% end %>
+                  <% s.recommendations.each do |recommendation| %>
+                    <tr><td><%= link_to recommendation.name, recommendation %></td></tr>
                   <% end %>
                 <% end %>
               </table>
