@@ -12,11 +12,13 @@
     </div>
     <div>
       <%= institution.label :start, 'From date:' %>
-      <%= institution.month_field :start %>
+      <%= institution.number_field :institution_start_month, :placeholder => 'Starting month', :required => true %>
+      <%= institution.number_field :institution_start_year, :placeholder => 'Starting year', :required => true %>
     </div>
     <div>
       <%= institution.label :end, 'To date:' %>
-      <%= institution.month_field :end, placeholder: 'End date' %>
+      <%= institution.number_field :institution_end_month, :placeholder => 'Ending month', :required => true %>
+      <%= institution.number_field :institution_end_month, :placeholder => 'Ending year', :required => true %>
     </div>
   <% end %>
 </div>

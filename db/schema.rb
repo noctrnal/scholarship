@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317225021) do
+ActiveRecord::Schema.define(version: 20180318035035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20180317225021) do
     t.date     "end"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "start_month"
+    t.integer  "start_year"
+    t.integer  "end_month"
+    t.integer  "end_year"
     t.index ["submission_id"], name: "index_employments_on_submission_id", using: :btree
   end
 
@@ -73,8 +77,12 @@ ActiveRecord::Schema.define(version: 20180317225021) do
     t.date     "end"
     t.string   "degree"
     t.float    "gpa"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "institution_start_month"
+    t.integer  "institution_start_year"
+    t.integer  "institution_end_month"
+    t.integer  "institution_end_year"
     t.index ["submission_id"], name: "index_institutions_on_submission_id", using: :btree
   end
 
@@ -205,6 +213,8 @@ ActiveRecord::Schema.define(version: 20180317225021) do
     t.string   "maiden_name"
     t.integer  "state_id"
     t.integer  "year",                  default: 2017
+    t.integer  "studies_month"
+    t.integer  "studies_year"
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
     t.index ["state_id"], name: "index_submissions_on_state_id", using: :btree

@@ -9,11 +9,13 @@
     </div>
     <div>
       <%= employment.label :start, 'From date:' %>
-      <%= employment.month_field :start %>
+      <%= employment.number_field :start_month, :placeholder => 'Starting month', :required => true %>
+      <%= employment.number_field :start_year , :placeholder => 'Starting year', :required => true %>
     </div>
     <div>
       <%= employment.label :end, 'To date:' %>
-      <%= employment.month_field :end, placeholder: 'End date' %>
+      <%= employment.number_field :end_month, :placeholder => 'Ending month', :required => true %>
+      <%= employment.number_field :end_year, :placeholder => 'Ending year', :required => true %>
     </div>
   <% end %>
 </div>
