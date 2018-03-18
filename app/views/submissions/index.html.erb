@@ -23,12 +23,30 @@
         <% @submissions.each do |submission| %>
           <tr>
             <td><%= link_to name(submission), new_evaluation_path(:submission => submission) %></td>
-            <td><%= link_to 'Submission', submission %></td>
+            <td>
+              <table class="no-bottom-border">
+                <tr><td><%= link_to 'Submission', submission %></td></tr>
+                <% s = previous_submission(submission) %>
+                <% if s %>
+                  <tr><td><%= link_to 'Previous submission', submission_path(s) %></td></tr>
+                <% end %>
+              </table>
+            </td>
             <td>
               <table class="no-bottom-border">
                 <% submission.institutions.each do |institution| %>
                   <% if institution.transcript %>
                     <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
+                  <% end %>
+                <% end %>
+              </table>
+              <table class="no-bottom-border">
+                <% if s %>
+                  <th>Previous transcript(s)</th>
+                  <% s.institutions.each do |institution| %>
+                    <% if institution.transcript %>
+                      <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
+                    <% end %>
                   <% end %>
                 <% end %>
               </table>
@@ -39,6 +57,16 @@
                   <tr><td><%= link_to recommendation.name, recommendation %></td></tr>
                 <% end %>
               </table>
+              <% if s %>
+                <table class="no-bottom-border">
+                  <th>Previous recommendation(s)</th>
+                  <% s.institutions.each do |institution| %>
+                    <% if institution.transcript %>
+                      <tr><td><%= link_to institution.name, institution.transcript.upload.url %></td></tr>
+                    <% end %>
+                  <% end %>
+                </table>
+              <% end %>
             </td>
             <td><%= submission.score(current_user) %> / 20</td>
             <td><%= submission.overall %> / 20</td>
