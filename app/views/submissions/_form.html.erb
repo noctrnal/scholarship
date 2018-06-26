@@ -31,7 +31,7 @@
         <div class="not-required-on-reapply">
           <%= form.label :state_id, 'State of residence:', :class => field_class(@submission, :state_id) %>
           <%= form.select :state_id, options_for_select(
-            State.all.map{|state| [state.name, state.id]},
+            State.order(name: :desc).map{|state| [state.name, state.id]},
             @submission.state_id
           ) %>
           <p class="<%= field_class(@submission, :license) %>">Adobe PDF of your driver's license:</p>
