@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :is_active?
+  before_action :is_active?, except: [:index]
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
 
   # GET /submissions

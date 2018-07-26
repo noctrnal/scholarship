@@ -20,7 +20,7 @@ class EvaluationsController < ApplicationController
   end
 
   def edit
-    @options = [1, 2, 3, 4, 5]
+    @options = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
     @submission = @evaluation.submission
   end
 
@@ -38,7 +38,7 @@ class EvaluationsController < ApplicationController
 
     @submission = Submission.find(params[:submission])
     @evaluation = Evaluation.new(:submission => @submission)
-    @options = [1, 2, 3, 4, 5]
+    @options = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
   end
 
   def update
