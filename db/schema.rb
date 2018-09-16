@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726005946) do
+ActiveRecord::Schema.define(version: 20180916171800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,6 +215,8 @@ ActiveRecord::Schema.define(version: 20180726005946) do
     t.integer  "year",                  default: 2017
     t.integer  "studies_month"
     t.integer  "studies_year"
+    t.integer  "graduation_month"
+    t.integer  "graduation_year"
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
     t.index ["state_id"], name: "index_submissions_on_state_id", using: :btree

@@ -94,8 +94,9 @@
       <div class="institution-information">
         <h3>Enrollment</h3>
         <div>
-          <%= form.label :accepted, 'I have been accepted into this graduate program.', :class => field_class(@submission, :acceptance) %>
-          <%= form.check_box :acceptance %>
+          <%= form.label :accepted, 'Have you been accepted into this graduate program?', :class => field_class(@submission, :acceptance) %>
+          <%= form.radio_button :acceptance, true %> Yes
+          <%= form.radio_button :acceptance, false %> No
         </div>
         <div>
           <div>
@@ -108,8 +109,18 @@
         </div>
         <div>
           <div>
-            <%= form.label :last_year, 'I will earn my degree this year.', :class => field_class(@submission, :last_year) %>
-            <%= form.check_box :last_year %>
+            <%= form.label :last_year, 'Will you earn your degree this year?', :class => field_class(@submission, :last_year) %>
+            <%= form.radio_button :last_year, true %> Yes
+            <%= form.radio_button :last_year, false %> No
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= form.label :start_date, 'Date that you will earn your degree:', :class => field_class(@submission, :start_date) %>
+          </div>
+          <div class="right">
+            <%= form.number_field :graduation_month, :placeholder => 'Month', :required => true %>
+            <%= form.number_field :graduation_year, :placeholder => 'Year', :required => true %>
           </div>
         </div>
         <div>
