@@ -9,6 +9,7 @@ class SubmissionsController < ApplicationController
     if !current_user.admin
       redirect_to root_path
     end
+
     @submissions = Submission.where(
       :approval => true,
       :year => Setting.year,
@@ -122,6 +123,8 @@ class SubmissionsController < ApplicationController
         :field_id,
         :first_name,
         :frequency,
+        :graduation_month,
+        :graduation_year,
         :institution_city,
         :institution_name,
         :institution_state,
@@ -168,13 +171,8 @@ class SubmissionsController < ApplicationController
           :_destroy,
           :id,
         ],
-        relatives_attributes:[
+        honors_attributes:[
           :name,
-          :relationship,
-          :address,
-          :city,
-          :state,
-          :zip,
           :_destroy,
           :id,
         ],
@@ -189,8 +187,13 @@ class SubmissionsController < ApplicationController
           :_destroy,
           :id,
         ],
-        honors_attributes:[
+        relatives_attributes:[
           :name,
+          :relationship,
+          :address,
+          :city,
+          :state,
+          :zip,
           :_destroy,
           :id,
         ],
