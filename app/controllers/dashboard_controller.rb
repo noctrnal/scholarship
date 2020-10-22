@@ -47,7 +47,7 @@ class DashboardController < ApplicationController
     @institutions = Institution.select(:id).where(:submission => @submission.id)
     @transcripts = Transcript.where(:institution => [@institutions])
       .where.not(:upload_updated_at => nil)
-    increase_percentage_if(@institutions.count == @transcripts.count)
+    increase_percentage_if(@institutions.count >= @transcripts.count)
   end
 
   def approval_status
