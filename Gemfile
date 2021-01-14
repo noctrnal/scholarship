@@ -66,7 +66,7 @@ gem 'has_secure_token'
 gem 'figaro'
 
 # Use rails_admin for NAJA interface
-gem 'rails_admin', '~> 1.0'
+gem 'rails_admin', '~> 1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
