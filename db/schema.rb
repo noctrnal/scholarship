@@ -215,8 +215,8 @@ ActiveRecord::Schema.define(version: 20180916171800) do
     t.integer  "year",                  default: 2017
     t.integer  "studies_month"
     t.integer  "studies_year"
-    t.integer  "graduation_month"
-    t.integer  "graduation_year"
+    t.integer  "graduation_month",      default: 0
+    t.integer  "graduation_year",       default: 0
     t.index ["degree_id"], name: "index_submissions_on_degree_id", using: :btree
     t.index ["field_id"], name: "index_submissions_on_field_id", using: :btree
     t.index ["state_id"], name: "index_submissions_on_state_id", using: :btree
