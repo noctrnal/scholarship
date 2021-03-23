@@ -82,13 +82,12 @@ class Submission < ApplicationRecord
     evaluation = Evaluation.find_by(:submission => id, :user => user)
 
     evaluation ? evaluation.score : 0
-    0
   end
 
   private
 
   def commitment_average
-    puts "submission_id: " + id
+    puts "submission_id: #{id}"
     sum = Evaluation.select('sum(commitment) as sum, count(*) as count')
       .where(:submission_id => id)
     sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_f : 0
