@@ -76,13 +76,13 @@ class Submission < ApplicationRecord
 
   def overall
     commitment_average + scholarship_average + recommendations_average + goals_average
-    0
   end
 
   def score(user)
     evaluation = Evaluation.find_by(:submission => id, :user => user)
 
     evaluation ? evaluation.score : 0
+    0
   end
 
   private
