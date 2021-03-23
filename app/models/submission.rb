@@ -76,6 +76,7 @@ class Submission < ApplicationRecord
 
   def overall
     commitment_average + scholarship_average + recommendations_average + goals_average
+    0
   end
 
   def score(user)
