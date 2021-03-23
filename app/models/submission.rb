@@ -75,7 +75,7 @@ class Submission < ApplicationRecord
   end
 
   def overall
-    commitment_average + scholarship_average + recommendations_average + goals_average + 0
+    commitment_average + scholarship_average + recommendations_average + goals_average
   end
 
   def score(user)
@@ -87,6 +87,7 @@ class Submission < ApplicationRecord
   private
 
   def commitment_average
+    puts "submission_id: " + id
     sum = Evaluation.select('sum(commitment) as sum, count(*) as count')
       .where(:submission_id => id)
     sum.exists? ? sum[0]['sum'] / sum[0]['count'].to_f : 0
